@@ -6,7 +6,7 @@ async function getData() {
       return response.json()
     })
   const data = response
-
+  console.log(data);
   return data
 }
 
