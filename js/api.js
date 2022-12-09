@@ -7,7 +7,6 @@ async function getData() {
     })
   const data = response
 
-  console.log(data);
   return data
 }
 
