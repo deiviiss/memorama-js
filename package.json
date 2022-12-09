@@ -1,0 +1,16 @@
+{
+  "name": "memorama-js",
+  "version": "1.0.0",
+  "description": "Juego de memorias con diferentes tematicas.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "JavaScript",
+    "HTML",
+    "CSS"
+  ],
+  "author": "Andrey Calderon <@andreycalder0n> David Hilera <david.hilera@hotmail.com>",
+  "license": "MIT"
+}
