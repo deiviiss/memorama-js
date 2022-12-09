@@ -5,33 +5,55 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>Juedo de Memoria</title>
+  <title>Memoram</title>
   <style>
+    @import url('https://fonts.googleapis.com/css2?family=Caveat&display=swap');
+    * {
+      box-sizing: border-box;
+      padding: 0;
+      margin: 0;
+    }
+
+    html {
+      font-size: 62.5%;
+      font-family: 'Caveat', cursive;
+
+    }
     body {
+      background-color: #2B3A55;
       display: flex;
       flex-direction: column;
       justify-content: center;
       align-items: center;
       height: 100vh;
     }
-
+    h1 {
+      font-size: 4rem;
+      font-weight: 100;
+      color: #F2E5E5;
+    }
     .container {
-      height: 50%;
-      width: 50%;
+      padding-top: 1.6rem;
+      height: 80%;
+      width: 80%;
       display: grid;
-      grid-template-columns: 1fr 1fr 1fr;
-      grid-template-rows: 1fr 1fr 1fr;
-      border: 5px solid black;
+      align-items: center;
+      justify-items: center;
+      grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr ;
+      grid-template-rows: 1fr 1fr;
     }
 
     .square {
       display: flex;
+      height: 20rem;
+      width: 16rem;
       justify-content: center;
       align-items: center;
-      background-color: #0099e5;
+      background-color: #E8C4C4;
       border: 1.5px solid black;
+      border-radius: 2rem;
       font-size: 2em;
-      color: #0099e5;
+      color: #E8C4C4;
       transition: .2s;
     }
 
@@ -43,13 +65,15 @@
       display: flex;
       justify-content: space-between;
       box-sizing: border-box;
-      margin-top: 10px;
-      padding: 10px;
-      background-color: #0099e5;
-      border: 3px solid black;
-      color: white;
-      width: 150px;
+      margin-top: 1rem;
+      padding: 1rem;
+      background-color: #E8C4C4;
+      border: .2rem solid black;
+      border-radius: 2rem;
+      color: black;
       text-align: center;
+      width: 32rem;
+      font-size: 1.6rem;
     }
 
     .score {
@@ -57,17 +81,15 @@
     }
 
     .btn-start {
+      font-family: 'Caveat', cursive;
       border-radius: 5px;
-      border: none;
+      border: .2rem solid black;
       width: 400px;
       height: 100px;
-      background: #ff4c4c;
-      color: white;
-      font-size: 2.5rem;
+      background: #c54343;
+      color: #F2E5E5;
+      font-size: 3.2rem;
       position: absolute;
-      top: calc(50% - 50px);
-      left: calc(50% - 200px);
-      transition: .3s;
     }
 
     .btn-start:active {
@@ -113,7 +135,7 @@
 </head>
 
 <body>
-  <h1>Juego de Memoria</h1>
+  <h1>Rick and morty</h1>
   <div class="container">
     <div class="square" id="cuadro-1"></div>
     <div class="square" id="cuadro-2"></div>
@@ -124,8 +146,11 @@
     <div class="square" id="cuadro-7"></div>
     <div class="square" id="cuadro-8"></div>
     <div class="square" id="cuadro-9"></div>
+    <div class="square" id="cuadro-10"></div>
+    <div class="square" id="cuadro-11"></div>
+    <div class="square" id="cuadro-12"></div>
   </div>
-  <button id="btnEmpezar" class="btn-start" onclick="empezarJuego()">Empezar a jugar!</button>
+  <button id="btnEmpezar" class="btn-start" onclick="empezarJuego()">¡Empieza el juego!</button>
   <div class="board">
     Puntaje:
     <div class="score" id="score">
@@ -147,6 +172,9 @@
     const square7 = document.getElementById("cuadro-7")
     const square8 = document.getElementById("cuadro-8")
     const square9 = document.getElementById("cuadro-9")
+    const square10 = document.getElementById("cuadro-10")
+    const square11 = document.getElementById("cuadro-11")
+    const square12 = document.getElementById("cuadro-12")
     const puntaje = document.getElementById("score")
     const intento = document.getElementById("intentos")
     const btn = document.getElementById('btnEmpezar')
@@ -181,6 +209,9 @@
           square7,
           square8,
           square9,
+          square10,
+          square11,
+          square12,
           puntaje,
           intento
         }
@@ -206,15 +237,18 @@
         // Reinicio los intentos
         this.eventos.intento.innerHTML = 3
         // Vuelvo a pintar los cuadros
-        square1.style.background = '#0099e5'
-        square2.style.background = '#0099e5'
-        square3.style.background = '#0099e5'
-        square4.style.background = '#0099e5'
-        square5.style.background = '#0099e5'
-        square6.style.background = '#0099e5'
-        square7.style.background = '#0099e5'
-        square8.style.background = '#0099e5'
-        square9.style.background = '#0099e5'
+        square1.style.background = '#c54343'
+        square2.style.background = '#c54343'
+        square3.style.background = '#c54343'
+        square4.style.background = '#c54343'
+        square5.style.background = '#c54343'
+        square6.style.background = '#c54343'
+        square7.style.background = '#c54343'
+        square8.style.background = '#c54343'
+        square9.style.background = '#c54343'
+        square10.style.background = '#c54343'
+        square11.style.background = '#c54343'
+        square12.style.background = '#c54343'
         // Reaparece el boton
         if (btn.classList.contains('btn-animateOut')) {
           btn.classList.remove('btn-animateOut')
