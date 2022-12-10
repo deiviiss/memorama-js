@@ -1,0 +1,127 @@
+@import url('https://fonts.googleapis.com/css2?family=Caveat&display=swap');
+
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+html {
+  font-size: 62.5%;
+  font-family: 'Caveat', cursive;
+}
+
+body {
+  background-color: #2B3A55;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+h1 {
+  font-size: 4rem;
+  font-weight: 100;
+  color: #F2E5E5;
+}
+
+.container {
+  padding-top: 1.6rem;
+  height: 80%;
+  width: 80%;
+  display: grid;
+  align-items: center;
+  justify-items: center;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
+  grid-template-rows: 1fr 1fr;
+}
+
+.square {
+  display: flex;
+  height: 20rem;
+  width: 16rem;
+  justify-content: center;
+  align-items: center;
+  background-color: #E8C4C4;
+  border: 1.5px solid black;
+  border-radius: 2rem;
+  font-size: 2em;
+  color: #E8C4C4;
+  transition: .2s;
+}
+
+/* .square:hover {
+            transform: scale(1.05)
+        } */
+
+.board {
+  display: flex;
+  justify-content: space-between;
+  box-sizing: border-box;
+  margin-top: 1rem;
+  padding: 1rem;
+  background-color: #E8C4C4;
+  border: .2rem solid black;
+  border-radius: 2rem;
+  color: black;
+  text-align: center;
+  width: 32rem;
+  font-size: 1.6rem;
+}
+
+.score {
+  margin-right: 5px;
+}
+
+.btn-start {
+  font-family: 'Caveat', cursive;
+  border-radius: 5px;
+  border: .2rem solid black;
+  width: 400px;
+  height: 100px;
+  background: #c54343;
+  color: #F2E5E5;
+  font-size: 3.2rem;
+  position: absolute;
+}
+
+.btn-start:active {
+  transform: scale(.8);
+}
+
+.btn-animateOut {
+  /* animation: btnOut 2s ease; */
+  animation-name: btnOut;
+  animation-duration: 2s;
+  animation-timing-function: ease;
+  animation-fill-mode: forwards;
+}
+
+@keyframes btnOut {
+  0% {
+    transform: translateY(0);
+  }
+
+  100% {
+    transform: translateY(-3000px);
+  }
+}
+
+.btn-animateIn {
+  /* animation: btnOut 2s ease; */
+  animation-name: btnIn;
+  animation-duration: 1s;
+  animation-timing-function: ease;
+  animation-fill-mode: forwards;
+}
+
+@keyframes btnIn {
+  0% {
+    transform: translateY(-3000px);
+  }
+
+  100% {
+    transform: translateY(0);
+  }
+}

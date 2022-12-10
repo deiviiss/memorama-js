@@ -1,0 +1,15 @@
+# Archivos binarios generados por la compilación
+*.exe
+*.dll
+*.obj
+*.out
+
+# Directorios generados por la compilación
+bin/
+build/
+
+# Archivos de configuración que contienen información sensible
+.env
+
+# Directorios que no deben ser rastreados por Git
+node_modules/
