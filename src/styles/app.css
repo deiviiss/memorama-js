@@ -1,5 +1,20 @@
 @import url('https://fonts.googleapis.com/css2?family=Caveat&display=swap');
 
+:root {
+  --blue-background: #288FB4;
+  --dark-background: #090030;
+  --complementary: #1D556F;
+  --dark-complementary: #0C3C78;
+  --beige-text: #EFDDB2;
+  --red-alert: #FA360A;
+  --dark-alert: #F30A49
+  --white: #ffffff;
+  --black: #000000;
+  --sm: 1.2rem;
+  --md: 2rem;
+  --lg: 3.2rem;
+}
+
 * {
   box-sizing: border-box;
   padding: 0;
@@ -12,7 +27,7 @@ html {
 }
 
 body {
-  background-color: #2B3A55;
+  background-color: var(--blue-background);
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -21,9 +36,9 @@ body {
 }
 
 h1 {
-  font-size: 4rem;
+  font-size: var(--lg);
   font-weight: 100;
-  color: #F2E5E5;
+  color: var(--beige-text);
 }
 
 .container {
@@ -43,11 +58,11 @@ h1 {
   width: 16rem;
   justify-content: center;
   align-items: center;
-  background-color: #E8C4C4;
+  background-color: var(--complementary);
   border: 1.5px solid black;
   border-radius: 2rem;
-  font-size: 2em;
-  color: #E8C4C4;
+  font-size: var(--lg);
+  color: var(--beige-text);
   transition: .2s;
 }
 
@@ -56,33 +71,34 @@ h1 {
         } */
 
 .board {
+  font-size: var(--sm);
   display: flex;
   justify-content: space-between;
   box-sizing: border-box;
   margin-top: 1rem;
   padding: 1rem;
-  background-color: #E8C4C4;
+  background-color: var(--complementary);
   border: .2rem solid black;
   border-radius: 2rem;
-  color: black;
+  color: var(--beige-text);
   text-align: center;
   width: 32rem;
   font-size: 1.6rem;
 }
 
 .score {
-  margin-right: 5px;
+  margin-right: 0.5rem;
 }
 
 .btn-start {
   font-family: 'Caveat', cursive;
-  border-radius: 5px;
+  border-radius: 0.5rem;
   border: .2rem solid black;
   width: 400px;
   height: 100px;
-  background: #c54343;
-  color: #F2E5E5;
-  font-size: 3.2rem;
+  background: var(--red-alert);
+  color: var(--beige-text);
+  font-size: var(--lg);
   position: absolute;
 }
 
