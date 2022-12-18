@@ -13,20 +13,11 @@
 <body>
   <h1>Rick and morty</h1>
   <div class="container">
-    <div class="square" id="cuadro-1"></div>
-    <div class="square" id="cuadro-2"></div>
-    <div class="square" id="cuadro-3"></div>
-    <div class="square" id="cuadro-4"></div>
-    <div class="square" id="cuadro-5"></div>
-    <div class="square" id="cuadro-6"></div>
-    <div class="square" id="cuadro-7"></div>
-    <div class="square" id="cuadro-8"></div>
-    <div class="square" id="cuadro-9"></div>
-    <div class="square" id="cuadro-10"></div>
-    <div class="square" id="cuadro-11"></div>
-    <div class="square" id="cuadro-12"></div>
+    <div class="card-container">
+      <!--   <img class="character-image" src="https://rickandmortyapi.com/api/character/avatar/1.jpeg" alt="Rick Sánchez">-->
+    </div>
   </div>
-  <button id="btnEmpezar" class="btn-start" onclick="empezarJuego()">¡Empieza el juego!</button>
+  <button id="btnEmpezar" class="btn-start">¡Empieza el juego!</button>
   <div class="board">
     Puntaje:
     <div class="score" id="score">
@@ -38,9 +29,7 @@
     </div>
   </div>
 
-  <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/2.1.2/sweetalert.min.js"></script> -->
-  <script defer src="./scripts/app.js"></script>
-  <script async src="./scripts/api.js"></script>
+  <script type="module" src="./scripts/app.js"></script>
 </body>
 
 </html>
