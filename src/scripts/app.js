@@ -13,8 +13,6 @@ btnEmpezar.addEventListener('click', async () => {
   new MemoryGame(cardsApi);
 });
 
-// preguntar por nivel
-
 function toggleBtnEmpezar() {
   if (btnEmpezar.classList.contains('hide')) {
     btnEmpezar.classList.remove('hide');
@@ -22,7 +20,3 @@ function toggleBtnEmpezar() {
     btnEmpezar.classList.add('hide');
   }
 }
-
-// los niveles son dados por la cantidad cartas
-// mezclar los elementos del arreglo
-
