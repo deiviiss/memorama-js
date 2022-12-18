@@ -46,7 +46,7 @@ export default class MemoryGame {
     this.cards.map(card => {
       cardsBuild.push(
         `<figure class data-image="${card.id}">
-        <img class="back" src="https://raw.githubusercontent.com/RetaxMaster/memorama/main/images/back.png" alt="back">
+        <img class="square" >
         <div class="searched-image">
         <img class="" src="${card.url}" alt="${card.name}"/>
         </div>

@@ -7,8 +7,7 @@
   --dark-complementary: #0C3C78;
   --beige-text: #EFDDB2;
   --red-alert: #FA360A;
-  --dark-alert: #F30A49
-  --white: #ffffff;
+  --dark-alert: #F30A49 --white: #ffffff;
   --black: #000000;
   --sm: 1.2rem;
   --md: 2rem;
@@ -102,12 +101,10 @@ figure .searched-image {
   overflow: hidden;
 }
 
-figure .back {
+figure .square {
   display: block;
   backface-visibility: hidden;
-}
 
-.square {
   display: flex;
   height: 20rem;
   width: 16rem;
