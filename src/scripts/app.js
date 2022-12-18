@@ -73,18 +73,18 @@ class Juego {
     // Reinicio los intentos
     this.eventos.intento.innerHTML = 3;
     // Vuelvo a pintar los cuadros
-    square1.style.background = '#c54343';
-    square2.style.background = '#c54343';
-    square3.style.background = '#c54343';
-    square4.style.background = '#c54343';
-    square5.style.background = '#c54343';
-    square6.style.background = '#c54343';
-    square7.style.background = '#c54343';
-    square8.style.background = '#c54343';
-    square9.style.background = '#c54343';
-    square10.style.background = '#c54343';
-    square11.style.background = '#c54343';
-    square12.style.background = '#c54343';
+    square1.style.background = '#FA360A';
+    square2.style.background = '#FA360A';
+    square3.style.background = '#FA360A';
+    square4.style.background = '#FA360A';
+    square5.style.background = '#FA360A';
+    square6.style.background = '#FA360A';
+    square7.style.background = '#FA360A';
+    square8.style.background = '#FA360A';
+    square9.style.background = '#FA360A';
+    square10.style.background = '#FA360A';
+    square11.style.background = '#FA360A';
+    square12.style.background = '#FA360A';
     // Reaparece el boton
     if (btn.classList.contains('btn-animateOut')) {
       btn.classList.remove('btn-animateOut');
