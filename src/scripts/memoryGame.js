@@ -10,7 +10,7 @@ export default class MemoryGame {
     this.cards = [];
     this.cardsImage;
 
-    this.CurrentLevel = 1;
+    this.CurrentLevel = 2;
     this.foundPairs = 0;
     this.maxPairNumber;
 
