@@ -6,30 +6,42 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>Memoram</title>
-
-  <link rel="stylesheet" href="./styles/app.css">
+  <link rel="stylesheet" href="./styles/style.css">
+  <script src="https://kit.fontawesome.com/81fd9d3b63.js" crossorigin="anonymous"></script>
 </head>
 
 <body>
-  <h1>Rick and morty</h1>
-  <div class="container">
-
-    <div class="card-container">
-      <!--   <img class="character-image" src="https://rickandmortyapi.com/api/character/avatar/1.jpeg" alt="Rick Sánchez">-->
-    </div>
-  </div>
-  <button id="btnEmpezar" class="btn-start">¡Empieza el juego!</button>
-  <div class="board">
-    Puntaje:
-    <div class="score" id="score">
-      0
-    </div>
-    Intentos:
-    <div class="intentos" id="intentos">
-      3
-    </div>
-  </div>
-
+  <header>
+    <h1>Memorama Time</h1>
+  </header>
+  <nav>
+    <button>
+      <i class="dark-mode"></i>
+    </button>
+    <button>
+      <i class="settings"></i>
+    </button>
+  </nav>
+  <main>
+    <section class="game">
+      <div class="card"><i class="fa-solid fa-question"></i></div>
+      <div class="card"><i class="fa-solid fa-question"></i></div>
+      <div class="card"><i class="fa-solid fa-question"></i></div>
+      <div class="card"><i class="fa-solid fa-question"></i></div>
+    </section>
+    <aside>
+      <div class="level">
+        <h2>Level 1</h2>
+      </div>
+      <div class="tiempo">
+        <h2>00:00</h2>
+      </div>
+      <div class="board">
+        <h3>Hits</h3>
+        <h3>Attempts</h3>
+      </div>
+    </aside>
+  </main>
   <script type="module" src="./scripts/app.js"></script>
 </body>
 
