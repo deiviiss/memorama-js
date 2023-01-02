@@ -1,16 +1,17 @@
 @import url('https://fonts.googleapis.com/css2?family=Amatic+SC&display=swap');
 :root {
-  --blue-background: #288FB4;
-  --dark-background: #090030;
+  --blue: #288FB4;
   --complementary: #1D556F;
-  --dark-complementary: #0C3C78;
-  --beige-text: #EFDDB2;
-  --red-alert: #FA360A;
-  --dark-alert: #F30A49 --white: #ffffff;
+  --beige-font: #EFDDB2;
+  --red: #FA360A;
   --black: #000000;
-  --sm: 1.2rem;
-  --md: 2rem;
-  --lg: 3.2rem;
+  --dark-blue: #090030;
+  --dark-complementary: #0C3C78;
+  --dark-font: #04879C;
+  --red-dark-: #F30A49;
+  --sm: 1.6rem;
+  --md: 3.2rem;
+  --lg: 6.4rem;
 }
 * {
   box-sizing: border-box;
@@ -22,10 +23,108 @@ html {
   font-family: 'Amatic SC', cursive;
 }
 body {
-  background-color: var(--blue-background);
+  background-color: var(--blue);
+  height: 100vh;
+}
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+main {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+header .logo {
+  width: 80%;
+  height: 8rem;
+  font-family: 'Amatic SC';
+  font-style: normal;
+  font-weight: 700;
+  font-size: var(--lg);
+  line-height: 8.1rem;
+  text-align: left;
+  padding-left: 1.2rem;
+  color: var(--dark-blue)
+}
+.menu button{
+  border: none;
+  background-color: var(--blue);
+  cursor: pointer;
+}
+.menu {
+  width: 20%;
+  display: flex;
+  justify-content: space-around;
+}
+svg {
+  fill: var(--complementary);
+}
+h3 {
+  font-size: var(--md)
+}
+.game{
+  padding-top: 3.2rem;
+  height: 100%;
+  width: 80%;
+  display: grid;
+  align-items: center;
+  justify-items: center;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr 1fr;
+  grid-row-gap: 12rem
+}
+.game .card-container {
+  width: 12rem;
+  height: 16rem;
+  background-color: var(--red);
+  border: 1px solid rgba(0, 0, 0, 0.12);
+  box-shadow: 0px 16px 4px rgba(0, 0, 0, 0.4);
+  border-radius: 12px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.game .card-container i {
+  font-size: 8vw;
+  color: var(--complementary);
+}
+.data-container {
+  width: 20%;
+}
+.data-container div {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  height: 100vh;
+  padding-top: 8rem;
+
+}
+.data-container div h3 {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 240px;
+  height: 80px; 
+  background-color: var(--complementary);
+  border: 1px solid rgba(0, 0, 0, 0.4);
+  box-shadow: 0px 8px 4px rgba(0, 0, 0, 0.25);
+  border-radius: 20px;
+}
+.btn-start {
+  font-family: 'Caveat', cursive;
+  border-radius: 0.5rem;
+  border: .2rem solid black;
+  width: 400px;
+  height: 100px;
+  background: var(--red-alert);
+  color: var(--beige-text);
+  font-size: var(--lg);
+  position: absolute;
+}
+
+.btn-start:active {
+  transform: scale(.8);
 }

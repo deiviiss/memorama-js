@@ -12,41 +12,41 @@
 
 <body>
   <header>
-    <h1>Memorama Time</h1>
+    <h1 class="logo">Memorama Time</h1>
+    <nav class="menu">
+      <button class="dark-mode">
+        <i>
+          <svg xmlns="http://www.w3.org/2000/svg" height="48" width="48"><path d="M24 42q-7.5 0-12.75-5.25T6 24q0-7.5 5.25-12.75T24 6q.4 0 .85.025.45.025 1.15.075-1.8 1.6-2.8 3.95-1 2.35-1 4.95 0 4.5 3.15 7.65Q28.5 25.8 33 25.8q2.6 0 4.95-.925T41.9 22.3q.05.6.075.975Q42 23.65 42 24q0 7.5-5.25 12.75T24 42Zm0-3q5.45 0 9.5-3.375t5.05-7.925q-1.25.55-2.675.825Q34.45 28.8 33 28.8q-5.75 0-9.775-4.025T19.2 15q0-1.2.25-2.575.25-1.375.9-3.125-4.9 1.35-8.125 5.475Q9 18.9 9 24q0 6.25 4.375 10.625T24 39Zm-.2-14.85Z"/></svg>
+        </i>
+      </button>
+      <button class="account">
+        <i>
+          <svg xmlns="http://www.w3.org/2000/svg" height="48" width="48"><path d="M11.1 35.25q3.15-2.2 6.25-3.375Q20.45 30.7 24 30.7q3.55 0 6.675 1.175t6.275 3.375q2.2-2.7 3.125-5.45Q41 27.05 41 24q0-7.25-4.875-12.125T24 7q-7.25 0-12.125 4.875T7 24q0 3.05.95 5.8t3.15 5.45ZM24 25.5q-2.9 0-4.875-1.975T17.15 18.65q0-2.9 1.975-4.875T24 11.8q2.9 0 4.875 1.975t1.975 4.875q0 2.9-1.975 4.875T24 25.5ZM24 44q-4.1 0-7.75-1.575-3.65-1.575-6.375-4.3-2.725-2.725-4.3-6.375Q4 28.1 4 24q0-4.15 1.575-7.775t4.3-6.35q2.725-2.725 6.375-4.3Q19.9 4 24 4q4.15 0 7.775 1.575t6.35 4.3q2.725 2.725 4.3 6.35Q44 19.85 44 24q0 4.1-1.575 7.75-1.575 3.65-4.3 6.375-2.725 2.725-6.35 4.3Q28.15 44 24 44Zm0-3q2.75 0 5.375-.8t5.175-2.8q-2.55-1.8-5.2-2.75-2.65-.95-5.35-.95-2.7 0-5.35.95-2.65.95-5.2 2.75 2.55 2 5.175 2.8Q21.25 41 24 41Zm0-18.5q1.7 0 2.775-1.075t1.075-2.775q0-1.7-1.075-2.775T24 14.8q-1.7 0-2.775 1.075T20.15 18.65q0 1.7 1.075 2.775T24 22.5Zm0-3.85Zm0 18.7Z"/></svg>
+        </i>
+      </button>
+    </nav>
   </header>
-  <nav>
-    <button>
-      <i>
-        <img src="./styles/icons/dark-mode.svg" width="48" height="48">
-      </i>
-    </button>
-    <button>
-      <i>
-        <img src="./styles/icons/acoount.svg" width="48" height="48">
-      </i>
-    </button>
-  </nav>
   <main>
+    <!-- <button id="btnEmpezar" class="btn-start">¡Empieza el juego!</button> -->
     <section class="game">
-      <div class="card"><i class="fa-solid fa-question"></i></div>
-      <div class="card"><i class="fa-solid fa-question"></i></div>
-      <div class="card"><i class="fa-solid fa-question"></i></div>
-      <div class="card"><i class="fa-solid fa-question"></i></div>
+      <div class="card-container"><i class="fa-solid fa-question"></i></div>
+      <div class="card-container"><i class="fa-solid fa-question"></i></div>
+      <div class="card-container"><i class="fa-solid fa-question"></i></div>
+      <div class="card-container"><i class="fa-solid fa-question"></i></div>
     </section>
-    <aside>
+    <aside class="data-container">
       <div class="level">
-        <h2>Level 1</h2>
+        <h3>Level 1</h3>
       </div>
-      <div class="tiempo">
-        <h2>00:00</h2>
+      <div class="time">
+        <h3>00:00</h3>
       </div>
       <div class="board">
-        <h3>Hits</h3>
-        <h3>Attempts</h3>
+        <h3>Hits<br>Attempts</h3>
       </div>
     </aside>
   </main>
-  <script type="module" src="./scripts/app.js"></script>
+  <!-- <script type="module" src="./scripts/app.js"></script> -->
 </body>
 
 </html>
