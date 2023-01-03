@@ -40,11 +40,7 @@ h1 {
   color: var(--beige-text);
 }
 
-.hide {
-  display: none;
-}
-
-.container {
+.card-container {
   padding-top: 1.6rem;
   height: 80%;
   width: 80%;
@@ -164,6 +160,10 @@ figure .square {
   animation-duration: 2s;
   animation-timing-function: ease;
   animation-fill-mode: forwards;
+}
+
+.hide {
+  display: none;
 }
 
 @keyframes btnOut {
