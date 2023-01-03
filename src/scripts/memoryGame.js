@@ -2,17 +2,25 @@ export default class MemoryGame {
   constructor(cardsApi) {
     this.cardsApi = cardsApi;
     console.log('building game...');
-    this.canPlay = false;
-    this.containerCards = document.querySelector('.card-container');
 
+    this.containerCards = document.querySelector('.card-container');
+    this.containerBoard = document.querySelector('.board');
+    this.showAttempts = document.querySelector('.attempts');
+    this.showScore = document.querySelector('.score');
+
+    this.canPlay = false;
     this.card1 = null;
     this.card2 = null;
-    this.cards = [];
+    this.cardsGame = [];
     this.cardsImage;
 
     this.CurrentLevel = 2;
     this.foundPairs = 0;
-    this.maxPairNumber;
+    this.maxPairNumber = 0;
+    this.attempts = 0;
+
+    this.moves;
+    this.hits;
 
     this.startGame();
   }
@@ -20,6 +28,7 @@ export default class MemoryGame {
   startGame() {
     console.log('start game');
     this.setCardsForLevel();
+    this.renderBoard();
     this.buildContainersCards();
     this.openCards();
   }
@@ -36,15 +45,15 @@ export default class MemoryGame {
     }
 
     this.maxPairNumber = cards.length;
-    this.cards = cards.concat(cards);
-    this.cards.sort(() => Math.random() - 0.5);
+    this.cardsGame = cards.concat(cards);
+    this.cardsGame.sort(() => Math.random() - 0.5);
   }
 
   buildContainersCards() {
-    let cardsBuild = [];
+    let cardsImage = [];
 
-    this.cards.map(card => {
-      cardsBuild.push(
+    this.cardsGame.map(card => {
+      cardsImage.push(
         `<figure class data-image="${card.id}">
         <img class="square" >
         <div class="searched-image">
@@ -54,12 +63,16 @@ export default class MemoryGame {
       );
     });
 
-    this.renderCards(cardsBuild);
+    this.renderCards(cardsImage);
   }
 
-  renderCards(cardsBuild) {
+  renderCards(cardsImage) {
     console.log('render cards');
-    this.containerCards.innerHTML = cardsBuild;
+    this.containerCards.innerHTML = cardsImage;
+  }
+
+  renderBoard() {
+    this.containerBoard.classList.remove('hide');
   }
 
   openCards() {
@@ -105,10 +118,12 @@ export default class MemoryGame {
 
   checkPair(image) {
     console.log('compare par');
+
     if (!this.card1) {
       this.card1 = image;
     } else {
       this.card2 = image;
+      this.counterAttemps();
     }
 
     if (this.card1 && this.card2) {
@@ -118,6 +133,31 @@ export default class MemoryGame {
       } else {
         setTimeout(this.resetOpenedCards.bind(this), 1000);
       }
+    }
+  }
+
+  counterAttemps() {
+    this.attempts++;
+    this.showAttempts.innerHTML = this.attempts;
+  }
+
+  checkIfWon() {
+    console.log('check If won');
+
+    this.counterPairs();
+
+    this.card1 = null;
+    this.card2 = null;
+    this.canPlay = true;
+
+    if (this.maxPairNumber == this.foundPairs) {
+
+      this.CurrentLevel++;
+
+      setTimeout(() => {
+        alert('¡Ganaste!');
+        this.setNewGame();
+      }, 1000);
     }
   }
 
@@ -135,27 +175,23 @@ export default class MemoryGame {
     this.canPlay = true;
   }
 
-  checkIfWon() {
-    console.log('check If won');
-
+  counterPairs() {
     this.foundPairs++;
-    this.card1 = null;
-    this.card2 = null;
-    this.canPlay = true;
+    this.showScore.innerHTML = this.foundPairs;
+  }
 
-    if (this.maxPairNumber == this.foundPairs) {
-      alert('¡Ganaste!');
-      this.CurrentLevel++;
-      this.foundPairs = 0;
-
-      this.setNewGame();
-    }
+  resetBoard() {
+    this.foundPairs = 0;
+    this.attempts = 0;
+    this.showScore.innerHTML = this.foundPairs;
+    this.showAttempts.innerHTML = this.attempts;
   }
 
   setNewGame() {
     console.log('start new game');
     this.removeClickEvents();
     this.cardsImage.forEach(card => card.classList.remove('opened'));
+    this.resetBoard();
 
     setTimeout(this.startGame.bind(this), 1000);
   }
