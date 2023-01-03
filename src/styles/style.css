@@ -98,7 +98,7 @@ h3 {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  padding-top: 8rem;
+  padding-top: 6rem;
 
 }
 .data-container div h3, .data-container div button {
@@ -106,19 +106,19 @@ h3 {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  width: 240px;
-  height: 80px; 
+  width: 24rem;
+  height: 8rem; 
   background-color: var(--complementary);
   border: 1px solid rgba(0, 0, 0, 0.4);
   box-shadow: 0px 8px 4px rgba(0, 0, 0, 0.25);
-  border-radius: 20px;
+  border-radius: 2rem;
 }
 .btn-start {
   font-family: 'Amatic SC', cursive;
   border-radius: 0.5rem;
   border: .2rem solid black;
-  width: 400px;
-  height: 100px;
+  width: 40rem;
+  height: 10rem;
   background: var(--red-alert);
   color: var(--beige-text);
   font-size: var(--lg);
@@ -159,9 +159,9 @@ figure::after {
   transition: 0.3s all ease;
 }
 
-/* figure:hover:after {
+figure:hover:after {
   background: rgba(255, 255, 255, 0.137);
-} */
+}
 
 figure .searched-image {
   position: absolute;
