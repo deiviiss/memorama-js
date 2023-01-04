@@ -1,4 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Amatic+SC&display=swap');
+
 :root {
   --blue: #288FB4;
   --complementary: #1D556F;
@@ -13,29 +14,35 @@
   --md: 3.2rem;
   --lg: 6.4rem;
 }
+
 * {
   box-sizing: border-box;
   padding: 0;
   margin: 0;
 }
+
 html {
   font-size: 62.5%;
   font-family: 'Amatic SC', cursive;
 }
+
 body {
   background-color: var(--blue);
   height: 100vh;
 }
+
 header {
   display: flex;
   justify-content: space-between;
   align-items: center;
 }
+
 main {
   display: flex;
   justify-content: space-between;
   align-items: center;
 }
+
 header .logo {
   width: 80%;
   height: 8rem;
@@ -48,35 +55,36 @@ header .logo {
   padding-left: 1.2rem;
   color: var(--dark-blue)
 }
-.menu button{
+
+.menu button {
   border: none;
   background-color: var(--blue);
   cursor: pointer;
 }
+
 .menu {
   width: 20%;
   display: flex;
   justify-content: space-around;
 }
+
 svg {
   fill: var(--complementary);
 }
+
 h3 {
   font-size: var(--md)
 }
-.game{
+
+.game {
   padding-top: 3.2rem;
   height: 100%;
   width: 80%;
-  display: grid;
-  align-items: center;
-  justify-items: center;
-  grid-template-columns: 1fr 1fr;
-  grid-template-rows: 1fr 1fr;
-  grid-row-gap: 12rem
+
 }
+
 .game .card-container {
-  width: 12rem;
+  /* width: 12rem;
   height: 16rem;
   background-color: var(--red);
   border: 1px solid rgba(0, 0, 0, 0.12);
@@ -84,15 +92,26 @@ h3 {
   border-radius: 12px;
   display: flex;
   justify-content: center;
+  align-items: center; */
+
+  display: grid;
   align-items: center;
+  justify-items: center;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr 1fr;
+  grid-row-gap: 12rem
 }
+
 .game .card-container i {
-  font-size: 8vw;
+  font-size: 10vw;
   color: var(--complementary);
+  position: absolute;
 }
+
 .data-container {
   width: 20%;
 }
+
 .data-container div {
   display: flex;
   flex-direction: column;
@@ -101,18 +120,21 @@ h3 {
   padding-top: 6rem;
 
 }
-.data-container div h3, .data-container div button {
+
+.data-container div h3,
+.data-container div button {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   width: 24rem;
-  height: 8rem; 
+  height: 8rem;
   background-color: var(--complementary);
   border: 1px solid rgba(0, 0, 0, 0.4);
   box-shadow: 0px 8px 4px rgba(0, 0, 0, 0.25);
   border-radius: 2rem;
 }
+
 .btn-start {
   font-family: 'Amatic SC', cursive;
   border-radius: 0.5rem;
@@ -137,6 +159,8 @@ figure img {
 }
 
 figure {
+  justify-content: center;
+  align-items: center;
   position: relative;
   transition: all ease .5s;
   transform-style: preserve-3d;
@@ -170,9 +194,11 @@ figure .searched-image {
   height: 100%;
   object-fit: fill;
 }
+
 figure .searched-image img {
   object-fit: fill;
 }
+
 figure .square {
   display: block;
   backface-visibility: hidden;
@@ -188,4 +214,8 @@ figure .square {
   justify-content: center;
   align-items: center;
   transition: .2s;
+}
+
+.hide {
+  display: none;
 }

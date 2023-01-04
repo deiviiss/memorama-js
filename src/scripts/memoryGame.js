@@ -19,8 +19,8 @@ export default class MemoryGame {
     this.maxPairNumber = 0;
     this.attempts = 0;
 
-    this.moves;
-    this.hits;
+    // this.moves;
+    // this.hits;
 
     this.startGame();
   }
@@ -54,7 +54,8 @@ export default class MemoryGame {
 
     this.cardsGame.map(card => {
       cardsImage.push(
-        `<figure class data-image="${card.id}">
+        `<figure data-image="${card.id}">
+        <i class="fa-solid fa-question"></i>
         <img class="square" >
         <div class="searched-image">
         <img class="" src="${card.url}" alt="${card.name}"/>
@@ -63,7 +64,7 @@ export default class MemoryGame {
       );
     });
 
-    this.renderCards(cardsImage);
+    this.renderCards(cardsImage.join(''));
   }
 
   renderCards(cardsImage) {
@@ -138,7 +139,7 @@ export default class MemoryGame {
 
   counterAttemps() {
     this.attempts++;
-    this.showAttempts.innerHTML = this.attempts;
+    this.showAttempts.innerHTML = `<h3>Attempts: ${this.attempts}</h3>`;
   }
 
   checkIfWon() {
@@ -177,14 +178,14 @@ export default class MemoryGame {
 
   counterPairs() {
     this.foundPairs++;
-    this.showScore.innerHTML = this.foundPairs;
+    this.showScore.innerHTML = ` <h3>Score: ${this.foundPairs}</h3>`;
   }
 
   resetBoard() {
     this.foundPairs = 0;
     this.attempts = 0;
-    this.showScore.innerHTML = this.foundPairs;
-    this.showAttempts.innerHTML = this.attempts;
+    this.showScore.innerHTML = '<h3>Score: 0</h3>';
+    this.showAttempts.innerHTML = '<h3>Attepmts: 0</h3>';
   }
 
   setNewGame() {
