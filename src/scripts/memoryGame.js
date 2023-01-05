@@ -19,6 +19,9 @@ export default class MemoryGame {
     this.maxPairNumber = 0;
     this.attempts = 0;
 
+    // save database
+    this.usedCards = [];
+    this.cardsToAvoid = [0, 1];
     // this.moves;
     // this.hits;
 
@@ -47,10 +50,19 @@ export default class MemoryGame {
     let cards = [];
 
     for (let index = 0; index < this.CurrentLevel; index++) {
+      // trae las cartas de la api de forma aleatoria
+      let randomIndex = Math.floor(Math.random() * this.cardsApi.length);
+
+      while (this.usedCards.includes(randomIndex) || this.cardsToAvoid.includes(randomIndex)) {
+        randomIndex = Math.floor(Math.random() * this.cardsApi.length);
+      }
+
+      this.usedCards.push(randomIndex);
+
       cards.push({
-        name: this.cardsApi[index].name,
-        id: this.cardsApi[index].id,
-        url: this.cardsApi[index].image
+        name: this.cardsApi[randomIndex].name,
+        id: this.cardsApi[randomIndex].id,
+        url: this.cardsApi[randomIndex].image
       });
     }
 
