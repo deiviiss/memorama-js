@@ -31,6 +31,16 @@ export default class MemoryGame {
     this.renderBoard();
     this.buildContainersCards();
     this.openCards();
+    const score = document.querySelector('#score')
+    const attempts = document.querySelector('#attempts')
+    score.style.display = 'flex'
+    attempts.style.display = 'flex'
+    const scoreSpan = document.querySelector('#score span');
+    const attemptsSpan = document.querySelector('#attempts span');
+    scoreSpan.style.display = 'none';
+    attemptsSpan.style.display = 'none';
+    const startButton = document.querySelector('.btn-start')
+    startButton.style.display = 'none'
   }
 
   setCardsForLevel() {
@@ -184,8 +194,8 @@ export default class MemoryGame {
   resetBoard() {
     this.foundPairs = 0;
     this.attempts = 0;
-    this.showScore.innerHTML = '<h3>Score: 0</h3>';
-    this.showAttempts.innerHTML = '<h3>Attepmts: 0</h3>';
+    this.showScore.innerHTML = '<h3>Score: </h3>';
+    this.showAttempts.innerHTML = '<h3>Attepmts: </h3>';
   }
 
   setNewGame() {

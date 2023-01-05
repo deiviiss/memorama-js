@@ -40,7 +40,6 @@ header {
 main {
   display: flex;
   justify-content: space-between;
-  align-items: center;
 }
 
 header .logo {
@@ -85,7 +84,7 @@ h3 {
 
 .game .card-container {
   /* width: 12rem;
-  height: 16rem;
+    height: 16rem;
   background-color: var(--red);
   border: 1px solid rgba(0, 0, 0, 0.12);
   box-shadow: 0px 16px 4px rgba(0, 0, 0, 0.4);
@@ -93,13 +92,12 @@ h3 {
   display: flex;
   justify-content: center;
   align-items: center; */
-
   display: grid;
   align-items: center;
   justify-items: center;
   grid-template-columns: 1fr 1fr;
   grid-template-rows: 1fr 1fr;
-  grid-row-gap: 12rem
+  grid-row-gap: 4rem
 }
 
 .game .card-container i {
@@ -117,7 +115,7 @@ h3 {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  padding-top: 6rem;
+  padding-top: 4rem;
 
 }
 
@@ -144,7 +142,6 @@ h3 {
   background: var(--red-alert);
   color: var(--beige-text);
   font-size: var(--lg);
-  position: absolute;
 }
 
 .btn-start:active {
@@ -154,8 +151,7 @@ h3 {
 figure,
 figure img {
   display: flex;
-  width: 100%;
-
+  width: 80%;
 }
 
 figure {
@@ -215,7 +211,16 @@ figure .square {
   align-items: center;
   transition: .2s;
 }
-
+/*
 .hide {
+  display: yes;
+} */
+.score h3 + * {
+  display: none;
+}
+.attempts h3 + * {
+  display: none;
+}
+#score, #attempts {
   display: none;
 }
