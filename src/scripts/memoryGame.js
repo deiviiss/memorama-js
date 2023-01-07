@@ -7,6 +7,7 @@ export default class MemoryGame {
     this.containerBoard = document.querySelector('.board');
     this.showAttempts = document.querySelector('.attempts');
     this.showScore = document.querySelector('.score');
+    this.startButton = document.querySelector('.btn-start') //Mientras se crea pagina inicial//
 
     this.canPlay = false;
     this.card1 = null;
@@ -19,6 +20,9 @@ export default class MemoryGame {
     this.maxPairNumber = 0;
     this.attempts = 0;
 
+    // save database
+    this.usedCards = [];
+    this.cardsToAvoid = [0, 1];
     // this.moves;
     // this.hits;
 
@@ -31,16 +35,30 @@ export default class MemoryGame {
     this.renderBoard();
     this.buildContainersCards();
     this.openCards();
+    
+    //mostrar score y attempts y ocultar Start//
+    this.showScore.style.display = 'flex' 
+    this.showAttempts.style.display = 'flex'
+    this.startButton.style.display = 'none'
   }
 
   setCardsForLevel() {
     let cards = [];
 
     for (let index = 0; index < this.CurrentLevel; index++) {
+      // trae las cartas de la api de forma aleatoria
+      let randomIndex = Math.floor(Math.random() * this.cardsApi.length);
+
+      while (this.usedCards.includes(randomIndex) || this.cardsToAvoid.includes(randomIndex)) {
+        randomIndex = Math.floor(Math.random() * this.cardsApi.length);
+      }
+
+      this.usedCards.push(randomIndex);
+
       cards.push({
-        name: this.cardsApi[index].name,
-        id: this.cardsApi[index].id,
-        url: this.cardsApi[index].image
+        name: this.cardsApi[randomIndex].name,
+        id: this.cardsApi[randomIndex].id,
+        url: this.cardsApi[randomIndex].image
       });
     }
 
@@ -184,8 +202,8 @@ export default class MemoryGame {
   resetBoard() {
     this.foundPairs = 0;
     this.attempts = 0;
-    this.showScore.innerHTML = '<h3>Score: 0</h3>';
-    this.showAttempts.innerHTML = '<h3>Attepmts: 0</h3>';
+    this.showScore.innerHTML = '<h3>Score: </h3>';
+    this.showAttempts.innerHTML = '<h3>Attepmts: </h3>';
   }
 
   setNewGame() {
