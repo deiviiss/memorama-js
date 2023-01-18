@@ -21,10 +21,8 @@ export default class MemoryGame {
     this.attempts = 0;
 
     // save database
-    this.usedCards = [];
+    this.foundCards = [];
     this.cardsToAvoid = [0, 1];
-    // this.moves;
-    // this.hits;
 
     this.startGame();
   }
