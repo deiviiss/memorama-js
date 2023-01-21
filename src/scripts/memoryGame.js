@@ -21,7 +21,7 @@ export default class MemoryGame {
     this.attempts = 0;
 
     // save database
-    this.foundCards = [];
+    this.usedCards = [];
     this.cardsToAvoid = [0, 1];
 
     this.startGame();
@@ -72,7 +72,7 @@ export default class MemoryGame {
       cardsImage.push(
         `<figure data-image="${card.id}">
         <i class="fa-solid fa-question"></i>
-        <img class="square" >
+        <div class="back"></div>
         <div class="searched-image">
         <img class="" src="${card.url}" alt="${card.name}"/>
         </div>
