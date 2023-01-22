@@ -80,7 +80,7 @@ h3 {
 .game {
   padding-top: 3.2rem;
   padding-bottom: 3.2rem;
-  width: 80%;
+  width: 100%;
 }
 
 .game .card-container {
@@ -108,7 +108,7 @@ figure {
   transition: all ease .6s;
   transform-style: preserve-3d;
   cursor: pointer;
-  box-shadow: 0rem 1.6rem 0.4rem rgba(0, 0, 0, 0.4);
+  box-shadow: 0rem 0.7rem 0.4rem rgba(0, 0, 0, 0.4);
   border-radius: 1.2rem;
 }
 
@@ -131,6 +131,7 @@ figure .searched-image img {
   /* ajusta automáticamente la altura de la imagen en relación con su ancho */
   object-fit: contain;
   /* asegura que la imagen se ajuste dentro del contenedor sin distorsionar su aspecto */
+  border-radius: 1.2rem;
 }
 
 figure.opened {
@@ -147,6 +148,7 @@ figure::after {
   height: 100%;
   background: rgba(255, 255, 255, 0);
   transition: 0.3s all ease;
+  border-radius: 1.2rem;
 }
 
 figure:hover:after {
@@ -158,7 +160,7 @@ figure .back {
   height: 20rem;
   background-color: var(--red);
   border: 0.1rem solid rgba(0, 0, 0, 0.12);
-  box-shadow: 0rem 1.6rem 0.4rem rgba(0, 0, 0, 0.4);
+  box-shadow: 0rem 0.7rem 0.4rem rgba(0, 0, 0, 0.4);
   border-radius: 1.2rem;
   /* transition: .2s; */
 }
