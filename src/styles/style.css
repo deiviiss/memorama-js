@@ -3,7 +3,7 @@
 :root {
   --blue: #288FB4;
   --complementary: #1D556F;
-  --beige-font: #EFDDB2;
+  --beige: #EFDDB2;
   --red: #FA360A;
   --black: #000000;
   --dark-blue: #090030;
@@ -34,6 +34,7 @@ body {
 header {
   display: flex;
   width: 100%;
+  height: 10%;
   justify-content: space-between;
   align-items: center;
   box-shadow: 0rem 0.7rem 0.4rem rgba(0, 0, 0, 0.2);
@@ -183,7 +184,8 @@ figure .back {
 
 .information div h3,
 .board div h3,
-.board div button {
+.board div button,
+.btn-start {
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -191,7 +193,7 @@ figure .back {
   width: 40vw;
   height: 8rem;
   background-color: var(--complementary);
-  color: var(--beige-font);
+  color: var(--beige);
   border: 0.1rem solid rgba(0, 0, 0, 0.4);
   box-shadow: 0rem 0.8rem 0.4rem rgba(0, 0, 0, 0.25);
   border-radius: 2rem;
@@ -219,6 +221,7 @@ figure .back {
   display: none;
 }
 
+/*Media Query */
 @media screen and (min-width: 640px) {
   header .logo {
     font-size: var(--lg);

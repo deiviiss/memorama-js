@@ -3,7 +3,7 @@
 :root {
   --blue: #288FB4;
   --complementary: #1D556F;
-  --beige-font: #EFDDB2;
+  --beige: #EFDDB2;
   --red: #FA360A;
   --black: #000000;
   --dark-blue: #090030;
@@ -14,16 +14,19 @@
   --md: 3.6rem;
   --lg: 6.4rem;
 }
+
 * {
   box-sizing: border-box;
   padding: 0;
   margin: 0;
 }
+
 html {
   font-size: 62.5%;
   font-family: 'Amatic SC', cursive;
   background-color: var(--complementary);
 }
+
 .register-account{
     padding-top: 15rem;
     padding-right: 0rem;
@@ -31,6 +34,7 @@ html {
     padding-left: 0rem;
     width: auto;
 }
+
 .login-form input{
     width: 100%;
     border: 1px solid #dddddd;
@@ -39,9 +43,11 @@ html {
     border-radius: 0;
     margin-bottom: 1.5rem;
 }
+
 .login-form{
     margin-bottom: 3rem;
 } 
+
 .signform {
     background-color: var(--blue);
     padding-bottom: 4rem;
@@ -49,27 +55,32 @@ html {
     margin: 0 auto;
     margin-top: auto;
 }
+
 .bts {
     padding: 2em;
     margin: 0.6em 0;
 }
+
 .bts-a{
     float:right;
     margin-right: 3.5rem;
     font-size: var(--sm);
     color: var(--dark-blue);
 }
+
 .bts-a:hover{
     color: #79b42b;
     text-decoration: none;
     background: white;   
 }
+
 .bts span {
     text-align: center; 
     font-size: var(--sm);
     font-family: 'Amatic SC', cursive;
 }
-.social{
+
+.social {
     transition: background 200ms ease-in-out 0s;
     -webkit-transition: background 200ms ease-in-out 0s;
     -moz-transition: background 200ms ease-in-out 0s;
@@ -97,43 +108,55 @@ html {
     text-decoration:none;
     text-align:center;
 }
+
 .fblogin {   
     background-color:#3b5898;  
 }
+
 .fblogin:hover {
     background-color:#5177c2;
 }
+
 .fblogin:active {
     position:relative;
     top:0.1rem;
 }
+
 .gplogin {  
     background-color:#dd4c39; 
 }
+
 .gplogin:hover {
     background-color:#f06e60;
 }
+
 .gplogin:active {
     position:relative;
     top:0.1rem;
 }
+
 .twlogin { 
     background-color:#00abee;  
 }
+
 .twlogin:hover {
     background-color:#4cbde6;
 }
+
 .twlogin:active {
     position:relative;
     top: 0.1rem;
 }
+
 .login-form input:focus, .login-form input:active {
     border-bottom: 0.2rem solid #79B42B;
     outline: none;
 }
+
 .subbt:hover {
     background-color: #79b42b;
 }
+
 .subbt {
     text-shadow: 0 1px 0 rgba(122, 122, 122, 0.85);
     transition: background 500ms ease-in-out 0s;
@@ -154,6 +177,7 @@ html {
     font-weight: 700;
     font-style: normal;
 }
+
 .right a {
     position: relative;
     color: var(--dark-blue);
@@ -164,32 +188,40 @@ html {
     font-size: var(--sm);
     float: right;
 }
+
 .headit { 
     position: relative; 
     top: -10px;
 }
+
 .headit h4{
     font-size: var(--md);
     color: var(--dark-blue);
 }
+
 .bts a:hover{
     text-decoration: none;
     color: white;
 }
+
 .bts a:active{
     color: white;
     text-decoration: none;
 }
+
 .bts a:focus{
     text-decoration: none;
     color: white;
 }
+
 .headit a {
     text-decoration: none;
 }
+
 .fa.fa-check-square {
     padding-right: 1.9rem;
 }
+
 form#login-form:before {
     content: 'or';
     font-size: var(--sm);
@@ -205,6 +237,7 @@ form#login-form:before {
     left: 1.5em;
     z-index: 900;
 }
+
 form#login-form:after {
     content: '';
     position: absolute;
@@ -218,14 +251,17 @@ form#login-form:after {
     -webkit-box-shadow: 0 8.8em 0 0 rgba(128, 128, 128, 0.3);
     box-shadow: 0 8.8em 0 0 rgba(128, 128, 128, 0.3);
 }
+
 .remember{
     color: var(--dark-blue);
     font-size: var(--sm);
     margin-left: .4rem;
 }
+
 ::placeholder { 
     font-family: 'Amatic SC', cursive;
 }
+
 /*Media Query */
 @media screen  and (min-width: 1400px) {
 .signform { 

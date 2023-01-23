@@ -3,7 +3,7 @@
 :root {
   --blue: #288FB4;
   --complementary: #1D556F;
-  --beige-font: #EFDDB2;
+  --beige: #EFDDB2;
   --red: #FA360A;
   --black: #000000;
   --dark-blue: #090030;
@@ -14,16 +14,19 @@
   --md: 3.6rem;
   --lg: 6.4rem;
 }
+
 * {
   box-sizing: border-box;
   padding: 0;
   margin: 0;
 }
+
 html {
   font-size: 62.5%;
   font-family: 'Amatic SC', cursive;
   background-color: var(--complementary);
 }
+
 .register-account{
     padding-top: 15rem;
     padding-right: 0rem;
@@ -31,7 +34,7 @@ html {
     padding-left: 0rem;
     width: auto;
 }
-/*Login Form CSS*/
+
 .login-form input{
     width: 100%;
     border: 0.1rem solid #dddddd;
@@ -40,9 +43,11 @@ html {
     border-radius: 0;
     margin-bottom: 1.5rem;
 }
+
 .login-form{
     margin-bottom: 3rem;
 } 
+
 .signform {
     display: flex;
     background-color: var(--blue);
@@ -56,9 +61,11 @@ html {
     border-bottom: 0.2rem solid #79B42B;
     outline: none;
 }
+
 .subbt:hover {
     background-color: #79b42b;
 }
+
 .subbt {
     text-shadow: 0 0.1rem 0 rgba(122, 122, 122, 0.85);
     transition: background 500ms ease-in-out 0s;
@@ -79,24 +86,30 @@ html {
     font-weight: 700;
     font-style: normal;
 }
+
 .headit { 
     position: relative; 
     top: -1rem;
 }
+
 .headit h4{
     font-size: var(--md);
     color: var(--dark-blue);
 }
+
 ::placeholder { 
     font-family: 'Amatic SC', cursive;
 }
-/*Media Query */
+
+
 @media screen  and (min-width: 1400px) {
 .signform { 
     width: 80%; 
     left: 25%; 
     }
 }
+
+/*Media Query */
 @media screen  and (max-width: 1400px) and (min-width: 1230px) {
 .signform {
     width: 70%;
