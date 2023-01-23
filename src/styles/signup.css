@@ -101,7 +101,7 @@ html {
     font-family: 'Amatic SC', cursive;
 }
 
-
+/*Media Query */
 @media screen  and (min-width: 1400px) {
 .signform { 
     width: 80%; 
@@ -109,7 +109,6 @@ html {
     }
 }
 
-/*Media Query */
 @media screen  and (max-width: 1400px) and (min-width: 1230px) {
 .signform {
     width: 70%;
