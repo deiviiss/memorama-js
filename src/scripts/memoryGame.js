@@ -172,8 +172,7 @@ export default class MemoryGame {
       this.CurrentLevel++;
 
       setTimeout(() => {
-        alert('¡Ganaste!');
-        this.setNewGame();
+        this.modalContinue();
       }, 1000);
     }
   }
@@ -211,5 +210,27 @@ export default class MemoryGame {
     this.resetBoard();
 
     setTimeout(this.startGame.bind(this), 1000);
+  }
+
+  modalContinue() {
+    //Queryselector para el modal de continuar//
+    this.nextModal = document.querySelectorAll('.next')[0];
+    this.modal = document.querySelectorAll('.modal')[0];
+    this.modalContainer = document.querySelectorAll('.modal-container')[0];
+
+    this.modalContainer.style.opacity = "1";
+    this.modalContainer.style.visibility = "visible";
+    this.modal.classList.toggle("modal-close");
+
+    this.nextModal.addEventListener("click", () => {
+      this.modal.classList.toggle("modal-close");
+
+      setTimeout(() => {
+        this.modalContainer.style.opacity = "0";
+        this.modalContainer.style.visibility = "hidden";
+      },300)
+
+      this.setNewGame()
+    })
   }
 }
