@@ -92,8 +92,10 @@ h3 {
 
 .game .card-container {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  /* display: flex; */
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
   gap: 2rem;
+  justify-items: center;
 }
 
 .game .card-container i {
@@ -107,7 +109,7 @@ figure {
   align-items: center;
   justify-content: center;
 
-  width: 200px;
+  min-width: 150px;
 }
 
 figure {
