@@ -27,7 +27,10 @@ html {
 }
 
 body {
-  background-color: var(--blue);
+  background-image: linear-gradient(to top, #4481eb 0%, #04befe 100%); /*Degradado 106 Party Bliss*/
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
   height: 100vh;
 }
 
@@ -68,7 +71,7 @@ header .logo {
 
 .menu button {
   border: none;
-  background-color: var(--blue);
+  background-color: transparent;
   cursor: pointer;
 }
 
@@ -201,6 +204,7 @@ figure .back {
 .btn-start {
   font-family: 'Amatic SC', cursive;
   font-size: var(--lg);
+  cursor: pointer;
 }
 
 .btn-start:active {
@@ -218,6 +222,81 @@ figure .back {
 #score,
 #attempts {
   display: none;
+}
+
+.modal-container {
+  opacity: 0;
+  visibility: hidden;
+  position: fixed;
+  z-index: 1000;
+  width: 100%;
+  height: 100vh;
+  top: 0;
+  left: 0;
+  background:rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.modal {
+  width: 40%;
+  height: 50%;
+  background-color: var(--beige);
+  text-align: center;
+  display: flex;
+  justify-content: space-evenly;
+  position: relative;
+  transition: transform 1s;
+  transform: translateY(0);
+  border-radius: 1.2rem;
+}
+
+.modal-close {
+  transform: translateY(200%);
+}
+
+.modal-options {
+  width: 100%;
+  justify-content: space-evenly;
+  display: flex;
+  flex-direction: column;
+}
+
+.modal-options img {
+  height: 50%;
+}
+
+.modal-options p {
+  font-size: var(--md);
+}
+
+.options-buttons {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  justify-content: space-evenly;
+}
+
+.options-buttons .modal-button {
+  height: 4rem;
+  width: 40%;
+  margin-top: 2rem;
+  font-family: 'Amatic SC', cursive;
+  font-size: var(--md);
+  background-color: var(--complementary);
+  color: #ffff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: none;
+  box-shadow: 0rem 0.4rem 0.4rem rgba(0, 0, 0, 0.2);
+  cursor: pointer;
+}
+
+.modal-button a {
+  text-decoration: none;
+  color: #ffff;
 }
 
 /*Media Query */
