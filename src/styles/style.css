@@ -92,8 +92,7 @@ h3 {
 
 .game .card-container {
   display: grid;
-  /* display: flex; */
-  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
   gap: 2rem;
   justify-items: center;
 }
@@ -108,8 +107,7 @@ figure {
   display: flex;
   align-items: center;
   justify-content: center;
-
-  min-width: 150px;
+  min-width: 200px;
 }
 
 figure {
@@ -152,7 +150,6 @@ figure::after {
   position: absolute;
   top: 0;
   left: 0;
-  /* display: inline-block; */
   width: 100%;
   height: 100%;
   background: rgba(255, 255, 255, 0);
@@ -171,7 +168,7 @@ figure .back {
   border: 0.1rem solid rgba(0, 0, 0, 0.12);
   box-shadow: 0rem 0.7rem 0.4rem rgba(0, 0, 0, 0.4);
   border-radius: 1.2rem;
-  /* transition: .2s; */
+  transition: .2s;
 }
 
 .information,
