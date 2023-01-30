@@ -4,6 +4,8 @@ export default class MemoryGame {
     console.log('building game...');
 
     this.containerCards = document.querySelector('.card-container');
+    this.containerTime = document.querySelector('.time');
+    this.showLevel = document.querySelector('.level');
     this.containerBoard = document.querySelector('.board');
     this.showAttempts = document.querySelector('.attempts');
     this.showScore = document.querySelector('.score');
@@ -19,6 +21,9 @@ export default class MemoryGame {
     this.foundPairs = 0;
     this.maxPairNumber = 0;
     this.attempts = 0;
+    this.cronometerInit = false;
+    this.totalTime = null;
+    this.timer = 0;
 
     // save database
     this.usedCards = [];
@@ -124,6 +129,10 @@ export default class MemoryGame {
 
   flipCard(event) {
     console.log('flip card');
+
+    if (this.foundPairs == 0) {
+      this.counterTime();
+    }
     const clickedCard = event.target;
 
     if (this.canPlay && !clickedCard.classList.contains('opened')) {
@@ -158,6 +167,13 @@ export default class MemoryGame {
     this.showAttempts.innerHTML = `<h3>Attempts: ${this.attempts}</h3>`;
   }
 
+  counterTime() {
+    this.totalTime = setInterval(() => {
+      this.timer++;
+      this.containerTime.innerHTML = `<h3>${this.timer} seconds</h3>`;
+    });
+  }
+
   checkIfWon() {
     console.log('check If won');
 
@@ -168,7 +184,8 @@ export default class MemoryGame {
     this.canPlay = true;
 
     if (this.maxPairNumber == this.foundPairs) {
-
+      console.log(this.totalTime);
+      clearInterval(this.totalTime);
       this.CurrentLevel++;
 
       setTimeout(() => {
@@ -197,6 +214,11 @@ export default class MemoryGame {
     this.showScore.innerHTML = ` <h3>Score: ${this.foundPairs}</h3>`;
   }
 
+  counterLevel() {
+    this.CurrentLevel - 1;
+    this.showLevel.innerHTML = ` <h3>Level: ${this.counterLevel}</h3>`;
+  }
+
   resetBoard() {
     this.foundPairs = 0;
     this.attempts = 0;
@@ -207,6 +229,7 @@ export default class MemoryGame {
   setNewGame() {
     console.log('start new game');
     this.removeClickEvents();
+    this.counterLevel();
     this.cardsImage.forEach(card => card.classList.remove('opened'));
     this.resetBoard();
 
