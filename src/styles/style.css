@@ -27,7 +27,8 @@ html {
 }
 
 body {
-  background-image: linear-gradient(to top, #4481eb 0%, #04befe 100%); /*Degradado 106 Party Bliss*/
+  background-image: linear-gradient(to top, #4481eb 0%, #04befe 100%);
+  /*Degradado 106 Party Bliss*/
   background-repeat: no-repeat;
   background-attachment: fixed;
   background-size: cover;
@@ -233,7 +234,7 @@ figure .back {
   height: 100vh;
   top: 0;
   left: 0;
-  background:rgba(0, 0, 0, 0.5);
+  background: rgba(0, 0, 0, 0.5);
   display: flex;
   justify-content: center;
   align-items: center;
@@ -253,7 +254,7 @@ figure .back {
 }
 
 .modal-close {
-  transform: translateY(200%);
+  /* transform: translateY(200%); */
 }
 
 .modal-options {

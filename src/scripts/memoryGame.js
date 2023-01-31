@@ -17,7 +17,7 @@ export default class MemoryGame {
     this.cardsGame = [];
     this.cardsImage;
 
-    this.CurrentLevel = 2;
+    this.currentLevel = 2;
     this.foundPairs = 0;
     this.maxPairNumber = 0;
     this.attempts = 0;
@@ -48,20 +48,34 @@ export default class MemoryGame {
   setCardsForLevel() {
     let cards = [];
 
-    for (let index = 0; index < this.CurrentLevel; index++) {
+    for (let index = 0; index < this.currentLevel; index++) {
       // trae las cartas de la api de forma aleatoria
-      let randomIndex = Math.floor(Math.random() * this.cardsApi.length);
+      let isRandom = Math.random() * this.cardsApi.length;
 
-      while (this.usedCards.includes(randomIndex) || this.cardsToAvoid.includes(randomIndex)) {
-        randomIndex = Math.floor(Math.random() * this.cardsApi.length);
+      console.log(isRandom);
+      if (isRandom >= 0 || isRandom <= 1) {
+        let randomIndex = Math.floor(isRandom);
+        console.log(randomIndex);
+        // return randomIndex;
       }
 
-      this.usedCards.push(randomIndex);
+      // while (this.usedCards.includes(randomIndex) || this.cardsToAvoid.includes(randomIndex)) {
+      //   randomIndex = Math.floor(Math.random() * this.cardsApi.length);
+      // }
+
+      // this.usedCards.push(randomIndex);
+
+      // cards.push({
+      //   name: this.cardsApi[randomIndex].name,
+      //   id: this.cardsApi[randomIndex].id,
+      //   url: this.cardsApi[randomIndex].image
+      // });
+      this.usedCards.push(index);
 
       cards.push({
-        name: this.cardsApi[randomIndex].name,
-        id: this.cardsApi[randomIndex].id,
-        url: this.cardsApi[randomIndex].image
+        name: this.cardsApi[index].name,
+        id: this.cardsApi[index].id,
+        url: this.cardsApi[index].image
       });
     }
 
@@ -169,8 +183,8 @@ export default class MemoryGame {
 
   counterTime() {
     this.totalTime = setInterval(() => {
-      this.timer++;
-      this.containerTime.innerHTML = `<h3>${this.timer} seconds</h3>`;
+      // this.timer++;
+      // this.containerTime.innerHTML = `<h3>${this.timer} seconds</h3>`;
     });
   }
 
@@ -186,7 +200,7 @@ export default class MemoryGame {
     if (this.maxPairNumber == this.foundPairs) {
       console.log(this.totalTime);
       clearInterval(this.totalTime);
-      this.CurrentLevel++;
+      this.currentLevel++;
 
       setTimeout(() => {
         this.modalContinue();
@@ -214,8 +228,8 @@ export default class MemoryGame {
   }
 
   counterLevel() {
-    this.CurrentLevel - 1;
-    this.showLevel.innerHTML = ` <h3>Level: ${this.counterLevel}</h3>`;
+    this.currentLevel - 1;
+    this.showLevel.innerHTML = ` <h3>Level: ${this.currentLevel}</h3>`;
   }
 
   resetBoard() {
@@ -241,19 +255,19 @@ export default class MemoryGame {
     this.modal = document.querySelectorAll('.modal')[0];
     this.modalContainer = document.querySelectorAll('.modal-container')[0];
 
-    this.modalContainer.style.opacity = "1";
-    this.modalContainer.style.visibility = "visible";
-    this.modal.classList.toggle("modal-close");
+    this.modalContainer.style.opacity = '1';
+    this.modalContainer.style.visibility = 'visible';
+    this.modal.classList.toggle('modal-close');
 
-    this.nextModal.addEventListener("click", () => {
-      this.modal.classList.toggle("modal-close");
+    this.nextModal.addEventListener('click', () => {
+      this.modal.classList.toggle('modal-close');
 
       setTimeout(() => {
-        this.modalContainer.style.opacity = "0";
-        this.modalContainer.style.visibility = "hidden";
-      },300)
+        this.modalContainer.style.opacity = '0';
+        this.modalContainer.style.visibility = 'hidden';
+      }, 300);
 
-      this.setNewGame()
-    })
+      this.setNewGame();
+    });
   }
 }
