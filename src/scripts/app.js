@@ -1,8 +1,7 @@
 // cualquier otra api
 import { API_Rick_Morty } from './apis.js';
 const api = new API_Rick_Morty();
-let data = await api.getCharacters();
-let cardsApi = data.results;
+let cardsApi = await api.getCharacters();
 
 import MemoryGame from './memoryGame.js';
 

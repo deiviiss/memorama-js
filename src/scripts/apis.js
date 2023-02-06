@@ -3,11 +3,19 @@ export class API_Rick_Morty {
 
   async getCharacters() {
 
-    const response = await fetch(urlApi);
+    let allData = [];
+    let url = urlApi;
 
-    const data = await response.json();
+    for (let i = 0; i < 11; i++) {
+      const response = await fetch(url);
+      const data = await response.json();
 
-    return data;
+      allData = allData.concat(data.results);
+      url = data.info.next;
+    }
+
+    //! Se esta tardando unos dos segundos en juntar todos los datos.
+    return allData;
   }
 }
 

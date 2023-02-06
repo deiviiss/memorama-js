@@ -1,7 +1,7 @@
 export default class MemoryGame {
   constructor(cardsApi) {
-    this.cardsApi = cardsApi;
     console.log('building game...');
+    this.cardsApi = cardsApi;
 
     this.containerCards = document.querySelector('.card-container');
     this.containerTime = document.querySelector('.time');
@@ -15,14 +15,14 @@ export default class MemoryGame {
     this.card1 = null;
     this.card2 = null;
     this.cardsGame = [];
-    this.cardsImage;
+    this.cardsImage = [];
 
     this.currentLevel = 2;
     this.foundPairs = 0;
     this.maxPairNumber = 0;
     this.attempts = 0;
     this.cronometerInit = false;
-    this.totalTime = null;
+    this.totalTime = 0;
     this.timer = 0;
 
     // save database
@@ -50,32 +50,18 @@ export default class MemoryGame {
 
     for (let index = 0; index < this.currentLevel; index++) {
       // trae las cartas de la api de forma aleatoria
-      let isRandom = Math.random() * this.cardsApi.length;
+      let randomIndex = Math.floor(Math.random() * this.cardsApi.length);
 
-      console.log(isRandom);
-      if (isRandom >= 0 || isRandom <= 1) {
-        let randomIndex = Math.floor(isRandom);
-        console.log(randomIndex);
-        // return randomIndex;
+      while (this.usedCards.includes(randomIndex) || this.cardsToAvoid.includes(randomIndex)) {
+        randomIndex = Math.floor(Math.random() * this.cardsApi.length);
       }
 
-      // while (this.usedCards.includes(randomIndex) || this.cardsToAvoid.includes(randomIndex)) {
-      //   randomIndex = Math.floor(Math.random() * this.cardsApi.length);
-      // }
-
-      // this.usedCards.push(randomIndex);
-
-      // cards.push({
-      //   name: this.cardsApi[randomIndex].name,
-      //   id: this.cardsApi[randomIndex].id,
-      //   url: this.cardsApi[randomIndex].image
-      // });
-      this.usedCards.push(index);
+      this.usedCards.push(randomIndex);
 
       cards.push({
-        name: this.cardsApi[index].name,
-        id: this.cardsApi[index].id,
-        url: this.cardsApi[index].image
+        name: this.cardsApi[randomIndex].name,
+        id: this.cardsApi[randomIndex].id,
+        url: this.cardsApi[randomIndex].image
       });
     }
 
@@ -144,7 +130,8 @@ export default class MemoryGame {
   flipCard(event) {
     console.log('flip card');
 
-    if (this.foundPairs == 0) {
+    if (this.foundPairs == 0 && this.totalTime == 0) {
+      console.log('Init time');
       this.counterTime();
     }
     const clickedCard = event.target;
@@ -176,16 +163,28 @@ export default class MemoryGame {
     }
   }
 
+  counterLevel() {
+    this.currentLevel - 1;
+    this.showLevel.innerHTML = ` <h3>Level: ${this.currentLevel}</h3>`;
+  }
+
   counterAttemps() {
     this.attempts++;
     this.showAttempts.innerHTML = `<h3>Attempts: ${this.attempts}</h3>`;
   }
 
+  counterPairs() {
+    this.foundPairs++;
+    this.showScore.innerHTML = ` <h3>Score: ${this.foundPairs}</h3>`;
+  }
+
   counterTime() {
     this.totalTime = setInterval(() => {
-      // this.timer++;
-      // this.containerTime.innerHTML = `<h3>${this.timer} seconds</h3>`;
+      this.timer++;
+      console.log(this.timer);
+      this.containerTime.innerHTML = `<h3>${(this.timer / 1000)} seconds</h3>`;
     });
+    console.log(this.totalTime);
   }
 
   checkIfWon() {
@@ -199,6 +198,7 @@ export default class MemoryGame {
 
     if (this.maxPairNumber == this.foundPairs) {
       console.log(this.totalTime);
+      console.log('Detengo el time');
       clearInterval(this.totalTime);
       this.currentLevel++;
 
@@ -222,19 +222,11 @@ export default class MemoryGame {
     this.canPlay = true;
   }
 
-  counterPairs() {
-    this.foundPairs++;
-    this.showScore.innerHTML = ` <h3>Score: ${this.foundPairs}</h3>`;
-  }
-
-  counterLevel() {
-    this.currentLevel - 1;
-    this.showLevel.innerHTML = ` <h3>Level: ${this.currentLevel}</h3>`;
-  }
-
   resetBoard() {
     this.foundPairs = 0;
     this.attempts = 0;
+    this.totalTime = 0;
+    this.containerTime.innerHTML = '<h3> 0 seconds</h3>';
     this.showScore.innerHTML = '<h3>Score: </h3>';
     this.showAttempts.innerHTML = '<h3>Attepmts: </h3>';
   }
