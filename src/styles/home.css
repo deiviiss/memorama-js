@@ -27,7 +27,11 @@ html {
 }
 
 body {
-  background-color: var(--blue);
+  background-image: linear-gradient(to top, #4481eb 0%, #04befe 100%);
+  /*Degradado 106 Party Bliss*/
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
   height: 100vh;
 }
 
@@ -37,7 +41,7 @@ header {
   height: 10%;
   justify-content: space-between;
   align-items: center;
-  box-shadow: 0rem 0.7rem 0.4rem rgba(0, 0, 0, 0.2);
+  box-shadow: 0rem 0.4rem 0.4rem rgba(0, 0, 0, 0.1);
 }
 
 header .logo {
@@ -59,9 +63,14 @@ header .logo {
   justify-content: space-around;
 }
 
+button {
+  background-color: transparent;
+  border: 0;
+}
+
 .menu button {
   border: none;
-  background-color: var(--blue);
+  background-color: transparent;
   cursor: pointer;
 }
 
@@ -71,7 +80,8 @@ svg {
 
 p {
   font-size: var(--md);
-  color: #ffffff;
+  color: var(--complementary);
+  font-weight: 800;
 }
 
 main {
@@ -84,12 +94,11 @@ a {
 }
 
 .information-container {
-  height: 9%;
   width: 90%;
+  height: auto;
   padding: 2rem;
   margin: 2rem;
-  ;
-  background: var(--complementary);
+  background: var(--beige);
   box-shadow: 0rem 0.7rem 0.4rem rgba(0, 0, 0, 0.2);
 }
 
@@ -120,54 +129,74 @@ a {
 }
 
 .theme-container p {
+  display: flex;
   font-size: var(--sm);
+  width: 20rem;
+  justify-content: center;
 }
 
 .theme-menu {
   display: flex;
   width: 50%;
-  justify-content: space-between;
+  height: 100%;
+  justify-content: space-evenly;
+  align-items: center;
 }
 
 .theme-menu div,
 .theme-menu button {
   display: flex;
-  height: 2.4rem;
   width: 4rem;
+  height: 80%;
   align-items: center;
   justify-content: center;
-  background-color: var(--red);
+  background-color: var(--complementary);
   color: #ffffff;
   border-radius: .8rem;
 }
 
-/*Media Query */
-@media (min-width: 360px) {
-  .themes-container {
-    padding-top: 12rem;
-  }
+.theme-menu div {
+  display: none;
 }
 
-@media (min-width: 410px) {
+/*Media Query */
+@media screen and (min-width: 270px) {
   .themes-container {
     padding-top: 10rem;
   }
 }
 
-@media (min-width: 640px) {
+@media screen and (min-width: 360px) {
+
+  .themes-container {
+    padding-top: 12rem;
+  }
+}
+
+@media screen and (min-width: 410px) {
+  .themes-container {
+    padding-top: 10rem;
+  }
+}
+
+@media screen and (min-width: 640px) {
+  .menu {
+    width: 10%;
+  }
+
   header .logo {
     font-size: var(--lg);
   }
 
-  F .theme-menu div,
+  .theme-menu div,
   .theme-menu button {
     width: 8rem;
   }
 }
 
-@media (min-width: 640px) {
+@media screen and (min-width: 670px) {
   .themes-container {
-    height: 20rem;
+    height: 22rem;
   }
 
   .theme-container p {
@@ -176,24 +205,24 @@ a {
 
   .theme-menu div,
   .theme-menu button {
-    height: 3.2rem;
     width: 6rem;
     font-size: 2rem;
   }
 }
 
-@media (min-width: 690px) {
+@media screen and (min-width: 690px) {
+  .information-container {
+    width: 100%;
+  }
+
   .themes-container {
     height: 24rem;
   }
 }
 
-@media (min-width: 860px) {
+@media screen and (min-width: 860px) {
   .themes-container {
     padding-top: 14rem;
-  }
-
-  .themes-container {
     height: 32rem;
   }
 
@@ -201,10 +230,13 @@ a {
     font-size: var(--md);
   }
 
+  .theme-menu div {
+    display: flex;
+  }
+
   .theme-menu div,
   .theme-menu button {
-    height: 4.8rem;
     width: 8rem;
-    font-size: var(--md);
+    font-size: 3.2rem;
   }
 }

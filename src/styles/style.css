@@ -41,7 +41,7 @@ header {
   height: 10%;
   justify-content: space-between;
   align-items: center;
-  box-shadow: 0rem 0.7rem 0.4rem rgba(0, 0, 0, 0.2);
+  box-shadow: 0rem 0.4rem 0.4rem rgba(0, 0, 0, 0.1);
 }
 
 main {
@@ -89,20 +89,19 @@ h3 {
 }
 
 .game {
-  padding-top: 3.2rem;
-  padding-bottom: 3.2rem;
+  padding: 2rem;
   width: 100%;
 }
 
 .game .card-container {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
   gap: 2rem;
   justify-items: center;
 }
 
 .game .card-container i {
-  font-size: 10vw;
+  font-size: 12vw;
   color: var(--complementary);
   position: absolute;
 }
@@ -111,7 +110,8 @@ figure {
   display: flex;
   align-items: center;
   justify-content: center;
-  min-width: 200px;
+  width: 6rem;
+  height: 8rem;
 }
 
 figure {
@@ -127,9 +127,9 @@ figure .searched-image {
   position: absolute;
   top: 0;
   left: 0;
+  height: 100%;
   transform: perspective(500px) rotateY(180deg);
   backface-visibility: hidden;
-
 }
 
 figure .searched-image img {
@@ -140,7 +140,7 @@ figure .searched-image img {
   /* establece el ancho máximo de la imagen en el 100% del ancho del contenedor */
   height: 100%;
   /* ajusta automáticamente la altura de la imagen en relación con su ancho */
-  object-fit: contain;
+  object-fit: cover;
   /* asegura que la imagen se ajuste dentro del contenedor sin distorsionar su aspecto */
   border-radius: 1.2rem;
 }
@@ -167,7 +167,7 @@ figure:hover:after {
 
 figure .back {
   width: 100%;
-  height: 20rem;
+  height: 100%;
   background-color: var(--red);
   border: 0.1rem solid rgba(0, 0, 0, 0.12);
   box-shadow: 0rem 0.7rem 0.4rem rgba(0, 0, 0, 0.4);
@@ -204,7 +204,8 @@ figure .back {
 
 .btn-start {
   font-family: 'Amatic SC', cursive;
-  font-size: var(--lg);
+  font-size: var(--md);
+  font-weight: 600;
   cursor: pointer;
 }
 
@@ -241,8 +242,8 @@ figure .back {
 }
 
 .modal {
-  width: 40%;
-  height: 50%;
+  width: 60%;
+  height: 60%;
   background-color: var(--beige);
   text-align: center;
   display: flex;
@@ -253,9 +254,9 @@ figure .back {
   border-radius: 1.2rem;
 }
 
-.modal-close {
-  /* transform: translateY(200%); */
-}
+/* .modal-close {
+  /* transform: translateY(200%); 
+}*/
 
 .modal-options {
   width: 100%;
@@ -269,7 +270,7 @@ figure .back {
 }
 
 .modal-options p {
-  font-size: var(--md);
+  font-size: 2.4rem;
 }
 
 .options-buttons {
@@ -280,11 +281,11 @@ figure .back {
 }
 
 .options-buttons .modal-button {
-  height: 4rem;
+  height: 4.8rem;
   width: 40%;
   margin-top: 2rem;
   font-family: 'Amatic SC', cursive;
-  font-size: var(--md);
+  font-size: 2.4rem;
   background-color: var(--complementary);
   color: #ffff;
   display: flex;
@@ -301,8 +302,131 @@ figure .back {
 }
 
 /*Media Query */
+@media screen and (min-width: 340px) {
+  figure {
+    width: 7.5rem;
+    height: 10rem;
+  }
+}
+
+@media screen and (min-width: 410px) {
+  figure {
+    width: 9rem;
+    height: 12rem;
+  }
+  .modal-options p, .options-buttons .modal-button {
+    font-size: 3rem;
+  }
+}
+
 @media screen and (min-width: 640px) {
   header .logo {
+    font-size: 4rem;
+  }
+
+  .menu {
+    width: 10%;
+  }
+  
+  figure {
+    width: 10.5rem;
+    height: 14rem;
+  }
+
+  .modal-options p, .options-buttons .modal-button {
+    font-size: var(--md);
+  }
+}
+
+@media screen and (min-width: 768px) {
+  header .logo {
+    font-size: 5.6rem;
+  }
+
+  figure {
+    width: 12rem;
+    height: 16rem;
+  }
+
+  main {
+    display: grid;
+    height: 80%;
+    grid-column-gap: 2rem;
+    grid-template-columns: 1fr 1fr;
+    grid-auto-rows: 1fr;
+    grid-template-areas: 
+            "b b a"
+            "b b c"
+  }
+  
+  .information {
+    grid-area: a;
+  }
+
+  .game {
+    grid-area: b;
+    height: 100%;
+  }
+
+  .board{
+    grid-area: c;
+  }
+
+  .information, .board {
+    height: 100%;
+    flex-direction: column;
+    padding-right: 4rem;
+  }
+
+  .information div, .board div{
+    padding-bottom: 2rem;
+  }
+  .information div h3, .board div h3, .board div button, .btn-start {
+    width: 16rem;
+  }
+
+  .game .card-container i {
+    font-size: 10vw;
+  }
+
+  .modal {
+    width: 50%;
+  }
+
+  .modal-options p, .options-buttons .modal-button {
+    font-size: 4rem;
+  }
+
+  .start {
+    grid-area: c;
+  }
+}
+
+@media screen and (min-width: 1024px) {
+  header .logo {
     font-size: var(--lg);
+  }
+
+  .game .card-container i {
+    font-size: 8vw;
+  }
+
+  .modal {
+    width: 40%;
+    height: 70%;
+  }
+}
+
+@media screen and (min-width: 1680px) {
+  figure {
+    width: 13.5rem;
+    height: 18rem;
+  }
+}
+
+@media screen and (min-width: 1870px) {
+  figure {
+    width: 15rem;
+    height: 20rem;
   }
 }
