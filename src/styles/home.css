@@ -59,6 +59,11 @@ header .logo {
   justify-content: space-around;
 }
 
+button {
+  background-color: transparent;
+  border: 0;
+}
+
 .menu button {
   border: none;
   background-color: var(--blue);
@@ -107,7 +112,7 @@ a {
 .theme-container {
   display: flex;
   flex-direction: row;
-  justify-content: space-evenly;
+  justify-content: space-around;
   align-items: center;
   width: 90%;
   height: 8rem;
@@ -141,30 +146,30 @@ a {
 }
 
 /*Media Query */
-@media (min-width: 360px) {
+@media screen and (min-width: 360px) {
   .themes-container {
     padding-top: 12rem;
   }
 }
 
-@media (min-width: 410px) {
+@media screen and (min-width: 410px) {
   .themes-container {
     padding-top: 10rem;
   }
 }
 
-@media (min-width: 640px) {
+@media screen and (min-width: 640px) {
   header .logo {
     font-size: var(--lg);
   }
 
-  F .theme-menu div,
+  .theme-menu div,
   .theme-menu button {
     width: 8rem;
   }
 }
 
-@media (min-width: 640px) {
+@media screen and (min-width: 640px) {
   .themes-container {
     height: 20rem;
   }
@@ -181,13 +186,13 @@ a {
   }
 }
 
-@media (min-width: 690px) {
+@media screen and (min-width: 690px) {
   .themes-container {
     height: 24rem;
   }
 }
 
-@media (min-width: 860px) {
+@media screen and (min-width: 860px) {
   .themes-container {
     padding-top: 14rem;
   }

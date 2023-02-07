@@ -95,7 +95,7 @@ h3 {
 
 .game .card-container {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(50px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
   gap: 2rem;
   justify-items: center;
 }
@@ -308,6 +308,7 @@ figure .back {
     height: 10rem;
   }
 }
+
 @media screen and (min-width: 410px) {
   figure {
     width: 9rem;
@@ -317,6 +318,7 @@ figure .back {
     font-size: 3rem;
   }
 }
+
 @media screen and (min-width: 640px) {
   header .logo {
     font-size: 4rem;
@@ -335,6 +337,7 @@ figure .back {
     font-size: var(--md);
   }
 }
+
 @media screen and (min-width: 768px) {
   header .logo {
     font-size: 5.6rem;
@@ -343,6 +346,43 @@ figure .back {
   figure {
     width: 12rem;
     height: 16rem;
+  }
+
+  main {
+    display: grid;
+    height: 80%;
+    grid-column-gap: 2rem;
+    grid-template-columns: 1fr 1fr;
+    grid-auto-rows: 1fr;
+    grid-template-areas: 
+            "b b a"
+            "b b c"
+  }
+  
+  .information {
+    grid-area: a;
+  }
+
+  .game {
+    grid-area: b;
+    height: 100%;
+  }
+
+  .board{
+    grid-area: c;
+  }
+
+  .information, .board {
+    height: 100%;
+    flex-direction: column;
+    padding-right: 4rem;
+  }
+
+  .information div, .board div{
+    padding-bottom: 2rem;
+  }
+  .information div h3, .board div h3, .board div button, .btn-start {
+    width: 16rem;
   }
 
   .game .card-container i {
@@ -356,7 +396,12 @@ figure .back {
   .modal-options p, .options-buttons .modal-button {
     font-size: 4rem;
   }
+
+  .start {
+    grid-area: c;
+  }
 }
+
 @media screen and (min-width: 1024px) {
   header .logo {
     font-size: var(--lg);
@@ -368,5 +413,20 @@ figure .back {
 
   .modal {
     width: 40%;
+    height: 70%;
+  }
+}
+
+@media screen and (min-width: 1680px) {
+  figure {
+    width: 13.5rem;
+    height: 18rem;
+  }
+}
+
+@media screen and (min-width: 1870px) {
+  figure {
+    width: 15rem;
+    height: 20rem;
   }
 }
