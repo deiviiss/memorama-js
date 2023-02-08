@@ -302,7 +302,7 @@ figure .back {
 }
 
 /*Media Query */
-@media screen and (max-width: 340px) {
+@media screen and (max-width: 370px) {
   .game .card-container {  
     grid-template-columns: repeat(auto-fit, minmax(50px, 1fr));
   }
