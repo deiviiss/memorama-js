@@ -302,6 +302,15 @@ figure .back {
 }
 
 /*Media Query */
+@media screen and (max-width: 340px) {
+  .game .card-container {  
+    grid-template-columns: repeat(auto-fit, minmax(50px, 1fr));
+  }
+
+  h3 {
+    font-size: 3rem;
+  }
+}
 @media screen and (min-width: 340px) {
   figure {
     width: 7.5rem;
