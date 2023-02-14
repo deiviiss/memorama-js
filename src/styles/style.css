@@ -62,12 +62,64 @@ header .logo {
   width: 20%;
   display: flex;
   justify-content: space-around;
+  position: relative;
 }
 
 .menu button {
   border: none;
   background-color: transparent;
   cursor: pointer;
+}
+
+.menu-list {
+  position: absolute;
+  display: none;
+  background: var(--bg-primary);
+  background-size: cover;
+  width: 100%;
+  padding-right: .2rem;
+  border: 0.1rem solid rgba(0, 0, 0, 0.12);
+  border-bottom-left-radius: 1rem;
+  border-bottom-right-radius: 1rem;
+}
+
+.menu-list > *:first-child {
+  border-top-left-radius: 0rem;
+  border-top-right-radius: 0rem;
+}
+
+.menu-list > *:last-child {
+  border-bottom-left-radius: 1rem;
+  border-bottom-right-radius: 1rem;
+}
+
+.menu-list.active {
+  display: block;
+  position: absolute;
+  margin-top: 4.8rem;
+}
+
+.menu-list .menu-item {
+  list-style: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem 0;
+  box-shadow: 0 0 0.2rem rgba(0, 0, 0, 1);
+}
+
+.menu-list li:hover {
+  background-color: var(--complementary-light);
+}
+
+.menu-list .menu-item a {
+  text-decoration: none;
+  font-size: var(--sm);
+  font-weight: 600;
+  color: var(--complementary-dark);
+  width: 100%;
+  display: flex;
+  justify-content: center;
 }
 
 .menu .dark-mode {
@@ -332,10 +384,6 @@ figure .back {
     font-size: 4rem;
   }
 
-  .menu {
-    width: 10%;
-  }
-  
   figure {
     width: 10.5rem;
     height: 14rem;
@@ -407,6 +455,10 @@ figure .back {
 
   .start {
     grid-area: c;
+  }
+
+  .menu .dark-mode {
+    display: block;
   }
 }
 
