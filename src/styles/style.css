@@ -1,15 +1,12 @@
 @import url('https://fonts.googleapis.com/css2?family=Amatic+SC&display=swap');
 
 :root {
-  --blue: #288FB4;
-  --complementary: #1D556F;
-  --beige: #EFDDB2;
-  --red: #FA360A;
-  --black: #000000;
-  --dark-blue: #090030;
-  --dark-complementary: #0C3C78;
-  --dark-font: #04879C;
-  --red-dark: #F30A49;
+  --bg-primary: linear-gradient(to top, #4481eb 0%, #04befe 100%) fixed no-repeat; /*Degradado 106 Party Bliss*/
+  --bg-secundary: linear-gradient(to top, #1e3c72 0%, #1e3c72 1%, #2a5298 100%) fixed no-repeat; /*Degradado 123 Night Sky*/
+  --bg-modal: linear-gradient(to top, #ffa366 0%, #f4cda5 100%) fixed no-repeat; /*Degradado personalizado*/
+  --bg-card: linear-gradient(-60deg, #ff5858 0%, #f09819 100%) fixed no-repeat; /*Degradado 102 Happy Memories*/
+  --complementary-dark: #090030;
+  --complementary-light: #ffff;
   --sm: 1.6rem;
   --md: 3.6rem;
   --lg: 6.4rem;
@@ -27,10 +24,7 @@ html {
 }
 
 body {
-  background-image: linear-gradient(to top, #4481eb 0%, #04befe 100%);
-  /*Degradado 106 Party Bliss*/
-  background-repeat: no-repeat;
-  background-attachment: fixed;
+  background: var(--bg-primary);
   background-size: cover;
   height: 100vh;
 }
@@ -61,13 +55,14 @@ header .logo {
   line-height: 8.1rem;
   text-align: left;
   padding-left: 1.2rem;
-  color: var(--dark-blue)
+  color: var(--complementary-dark);
 }
 
 .menu {
   width: 20%;
   display: flex;
   justify-content: space-around;
+  position: relative;
 }
 
 .menu button {
@@ -76,12 +71,63 @@ header .logo {
   cursor: pointer;
 }
 
+.menu-list {
+  position: absolute;
+  display: none;
+  background: var(--bg-primary);
+  background-size: cover;
+  width: 100%;
+  padding-right: .2rem;
+  border: 0.1rem solid rgba(0, 0, 0, 0.12);
+  border-bottom-left-radius: 1rem;
+  border-bottom-right-radius: 1rem;
+}
+
+.menu-list > *:first-child {
+  border-top-left-radius: 0rem;
+  border-top-right-radius: 0rem;
+}
+
+.menu-list > *:last-child {
+  border-bottom-left-radius: 1rem;
+  border-bottom-right-radius: 1rem;
+}
+
+.menu-list.active {
+  display: block;
+  position: absolute;
+  margin-top: 4.8rem;
+}
+
+.menu-list .menu-item {
+  list-style: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem 0;
+  box-shadow: 0 0 0.2rem rgba(0, 0, 0, 1);
+}
+
+.menu-list li:hover {
+  background-color: var(--complementary-light);
+}
+
+.menu-list .menu-item a {
+  text-decoration: none;
+  font-size: var(--sm);
+  font-weight: 600;
+  color: var(--complementary-dark);
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
 .menu .dark-mode {
   display: none;
 }
 
 svg {
-  fill: var(--complementary);
+  fill: var(--complementary-dark);
 }
 
 h3 {
@@ -102,7 +148,7 @@ h3 {
 
 .game .card-container i {
   font-size: 12vw;
-  color: var(--complementary);
+  color: var(--complementary-dark);
   position: absolute;
 }
 
@@ -168,7 +214,8 @@ figure:hover:after {
 figure .back {
   width: 100%;
   height: 100%;
-  background-color: var(--red);
+  background: var(--bg-card);
+  background-size: cover;
   border: 0.1rem solid rgba(0, 0, 0, 0.12);
   box-shadow: 0rem 0.7rem 0.4rem rgba(0, 0, 0, 0.4);
   border-radius: 1.2rem;
@@ -195,8 +242,9 @@ figure .back {
   align-items: center;
   width: 40vw;
   height: 8rem;
-  background-color: var(--complementary);
-  color: var(--beige);
+  background: var(--bg-secundary);
+  background-size: cover;
+  color: var(--complementary-light);
   border: 0.1rem solid rgba(0, 0, 0, 0.4);
   box-shadow: 0rem 0.8rem 0.4rem rgba(0, 0, 0, 0.25);
   border-radius: 2rem;
@@ -244,7 +292,9 @@ figure .back {
 .modal {
   width: 60%;
   height: 60%;
-  background-color: var(--beige);
+  background: var(--bg-modal);
+  background-size: cover;
+  color: var(--complementary);
   text-align: center;
   display: flex;
   justify-content: space-evenly;
@@ -286,8 +336,9 @@ figure .back {
   margin-top: 2rem;
   font-family: 'Amatic SC', cursive;
   font-size: 2.4rem;
-  background-color: var(--complementary);
-  color: #ffff;
+  background: var(--bg-secundary);
+  background-size: cover;
+  color: var(--complementary-light);
   display: flex;
   justify-content: center;
   align-items: center;
@@ -298,7 +349,7 @@ figure .back {
 
 .modal-button a {
   text-decoration: none;
-  color: #ffff;
+  color: var(--complementary-light);
 }
 
 /*Media Query */
@@ -333,10 +384,6 @@ figure .back {
     font-size: 4rem;
   }
 
-  .menu {
-    width: 10%;
-  }
-  
   figure {
     width: 10.5rem;
     height: 14rem;
@@ -408,6 +455,10 @@ figure .back {
 
   .start {
     grid-area: c;
+  }
+
+  .menu .dark-mode {
+    display: block;
   }
 }
 
