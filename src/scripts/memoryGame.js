@@ -17,7 +17,7 @@ export default class MemoryGame {
     this.cardsGame = [];
     this.cardsImage = [];
 
-    this.currentLevel = 2;
+    this.currentLevel = 1;
     this.foundPairs = 0;
     this.maxPairNumber = 0;
     this.attempts = 0;
@@ -47,8 +47,9 @@ export default class MemoryGame {
 
   setCardsForLevel() {
     let cards = [];
+    let level = this.currentLevel + 1;
 
-    for (let index = 0; index < this.currentLevel; index++) {
+    for (let index = 0; index < level; index++) {
       // trae las cartas de la api de forma aleatoria
       let randomIndex = Math.floor(Math.random() * this.cardsApi.length);
 
@@ -164,7 +165,6 @@ export default class MemoryGame {
   }
 
   counterLevel() {
-    this.currentLevel - 1;
     this.showLevel.innerHTML = ` <h3>Level: ${this.currentLevel}</h3>`;
   }
 
@@ -227,8 +227,8 @@ export default class MemoryGame {
     this.attempts = 0;
     this.totalTime = 0;
     this.containerTime.innerHTML = '<h3> 0 seconds</h3>';
-    this.showScore.innerHTML = '<h3>Score: </h3>';
-    this.showAttempts.innerHTML = '<h3>Attepmts: </h3>';
+    this.showScore.innerHTML = '<h3>Score: 0</h3>';
+    this.showAttempts.innerHTML = '<h3>Attepmts: 0</h3>';
   }
 
   setNewGame() {
