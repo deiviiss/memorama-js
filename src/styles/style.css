@@ -371,10 +371,6 @@ figure .back {
 }
 
 @media screen and (min-width: 410px) {
-  .game .card-container {
-    grid-template-columns: repeat(3, minmax(9rem, 1fr));
-  }
-
   figure {
     width: 9rem;
     height: 12rem;
