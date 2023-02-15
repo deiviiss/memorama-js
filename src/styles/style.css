@@ -1,10 +1,14 @@
 @import url('https://fonts.googleapis.com/css2?family=Amatic+SC&display=swap');
 
 :root {
-  --bg-primary: linear-gradient(to top, #4481eb 0%, #04befe 100%) fixed no-repeat; /*Degradado 106 Party Bliss*/
-  --bg-secundary: linear-gradient(to top, #1e3c72 0%, #1e3c72 1%, #2a5298 100%) fixed no-repeat; /*Degradado 123 Night Sky*/
-  --bg-modal: linear-gradient(to top, #ffa366 0%, #f4cda5 100%) fixed no-repeat; /*Degradado personalizado*/
-  --bg-card: linear-gradient(-60deg, #ff5858 0%, #f09819 100%) fixed no-repeat; /*Degradado 102 Happy Memories*/
+  --bg-primary: linear-gradient(to top, #4481eb 0%, #04befe 100%) fixed no-repeat;
+  /*Degradado 106 Party Bliss*/
+  --bg-secundary: linear-gradient(to top, #1e3c72 0%, #1e3c72 1%, #2a5298 100%) fixed no-repeat;
+  /*Degradado 123 Night Sky*/
+  --bg-modal: linear-gradient(to top, #ffa366 0%, #f4cda5 100%) fixed no-repeat;
+  /*Degradado personalizado*/
+  --bg-card: linear-gradient(-60deg, #ff5858 0%, #f09819 100%) fixed no-repeat;
+  /*Degradado 102 Happy Memories*/
   --complementary-dark: #090030;
   --complementary-light: #ffff;
   --sm: 1.6rem;
@@ -83,12 +87,12 @@ header .logo {
   border-bottom-right-radius: 1rem;
 }
 
-.menu-list > *:first-child {
+.menu-list>*:first-child {
   border-top-left-radius: 0rem;
   border-top-right-radius: 0rem;
 }
 
-.menu-list > *:last-child {
+.menu-list>*:last-child {
   border-bottom-left-radius: 1rem;
   border-bottom-right-radius: 1rem;
 }
@@ -141,7 +145,7 @@ h3 {
 
 .game .card-container {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+  grid-template-columns: repeat(2, minmax(9rem, 1fr));
   gap: 2rem;
   justify-items: center;
 }
@@ -354,28 +358,37 @@ figure .back {
 
 /*Media Query */
 @media screen and (max-width: 370px) {
-  .game .card-container {  
-    grid-template-columns: repeat(auto-fit, minmax(50px, 1fr));
-  }
-
   h3 {
     font-size: 3rem;
   }
 }
+
 @media screen and (min-width: 340px) {
   figure {
-    width: 7.5rem;
+    width: 9rem;
     height: 10rem;
   }
 }
 
 @media screen and (min-width: 410px) {
+  .game .card-container {
+    grid-template-columns: repeat(3, minmax(9rem, 1fr));
+  }
+
   figure {
     width: 9rem;
     height: 12rem;
   }
-  .modal-options p, .options-buttons .modal-button {
+
+  .modal-options p,
+  .options-buttons .modal-button {
     font-size: 3rem;
+  }
+}
+
+@media screen and (min-width: 460px) {
+  .game .card-container {
+    grid-template-columns: repeat(4, minmax(9rem, 1fr));
   }
 }
 
@@ -389,7 +402,8 @@ figure .back {
     height: 14rem;
   }
 
-  .modal-options p, .options-buttons .modal-button {
+  .modal-options p,
+  .options-buttons .modal-button {
     font-size: var(--md);
   }
 }
@@ -410,11 +424,11 @@ figure .back {
     grid-column-gap: 2rem;
     grid-template-columns: 1fr 1fr;
     grid-auto-rows: 1fr;
-    grid-template-areas: 
-            "b b a"
-            "b b c"
+    grid-template-areas:
+      "b b a"
+      "b b c"
   }
-  
+
   .information {
     grid-area: a;
   }
@@ -424,20 +438,26 @@ figure .back {
     height: 100%;
   }
 
-  .board{
+  .board {
     grid-area: c;
   }
 
-  .information, .board {
+  .information,
+  .board {
     height: 100%;
     flex-direction: column;
     padding-right: 4rem;
   }
 
-  .information div, .board div{
+  .information div,
+  .board div {
     padding-bottom: 2rem;
   }
-  .information div h3, .board div h3, .board div button, .btn-start {
+
+  .information div h3,
+  .board div h3,
+  .board div button,
+  .btn-start {
     width: 16rem;
   }
 
@@ -449,7 +469,8 @@ figure .back {
     width: 50%;
   }
 
-  .modal-options p, .options-buttons .modal-button {
+  .modal-options p,
+  .options-buttons .modal-button {
     font-size: 4rem;
   }
 
@@ -467,6 +488,10 @@ figure .back {
     font-size: var(--lg);
   }
 
+  .game .card-container {
+    grid-template-columns: repeat(6, minmax(9rem, 1fr));
+  }
+
   .game .card-container i {
     font-size: 8vw;
   }
@@ -478,6 +503,10 @@ figure .back {
 }
 
 @media screen and (min-width: 1680px) {
+  .game .card-container {
+    grid-template-columns: repeat(8, minmax(9rem, 1fr));
+  }
+
   figure {
     width: 13.5rem;
     height: 18rem;
