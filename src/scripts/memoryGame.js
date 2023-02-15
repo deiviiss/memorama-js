@@ -190,6 +190,7 @@ export default class MemoryGame {
 
     if (this.maxPairNumber == this.foundPairs) {
       clearInterval(this.intervalTime);
+      this.intervalTime = null;
       this.currentLevel++;
 
       this.modalContinue();
