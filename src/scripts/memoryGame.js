@@ -1,6 +1,5 @@
 export default class MemoryGame {
   constructor(cardsApi) {
-    console.log('building game...');
     this.cardsApi = cardsApi;
 
     this.containerCards = document.querySelector('.card-container');
@@ -21,8 +20,7 @@ export default class MemoryGame {
     this.foundPairs = 0;
     this.maxPairNumber = 0;
     this.attempts = 0;
-    this.cronometerInit = false;
-    this.totalTime = 0;
+    this.intervalTime = null;
     this.timer = 0;
 
     // save database
@@ -33,7 +31,6 @@ export default class MemoryGame {
   }
 
   startGame() {
-    console.log('start game');
     this.setCardsForLevel();
     this.renderBoard();
     this.buildContainersCards();
@@ -53,6 +50,7 @@ export default class MemoryGame {
       // trae las cartas de la api de forma aleatoria
       let randomIndex = Math.floor(Math.random() * this.cardsApi.length);
 
+      // excluye cartas usadas
       while (this.usedCards.includes(randomIndex) || this.cardsToAvoid.includes(randomIndex)) {
         randomIndex = Math.floor(Math.random() * this.cardsApi.length);
       }
@@ -90,7 +88,6 @@ export default class MemoryGame {
   }
 
   renderCards(cardsImage) {
-    console.log('render cards');
     this.containerCards.innerHTML = cardsImage;
   }
 
@@ -99,7 +96,6 @@ export default class MemoryGame {
   }
 
   openCards() {
-    console.log('open cards');
     this.cardsImage = document.querySelectorAll('.card-container figure');
 
     this.cardsImage.forEach(card => card.classList.add('opened'));
@@ -110,30 +106,24 @@ export default class MemoryGame {
   }
 
   closeCards() {
-    console.log('close cards');
     this.cardsImage.forEach(card => card.classList.remove('opened'));
     this.addClickEvents();
     this.canPlay = true;
   }
 
   addClickEvents() {
-    console.log('add click events');
     this.cardsImage.forEach(card => {
       card.addEventListener('click', this.flipCard.bind(this));
     });
   }
 
   removeClickEvents() {
-    console.log('remove click events');
     this.cardsImage.forEach(card => card.removeEventListener('click', this.flipCard));
   }
 
   flipCard(event) {
-    console.log('flip card');
-
-    if (this.foundPairs == 0 && this.totalTime == 0) {
-      console.log('Init time');
-      this.counterTime();
+    if (this.foundPairs == 0 && this.timer == 0) {
+      this.counterTimer();
     }
     const clickedCard = event.target;
 
@@ -145,8 +135,6 @@ export default class MemoryGame {
   }
 
   checkPair(image) {
-    console.log('compare par');
-
     if (!this.card1) {
       this.card1 = image;
     } else {
@@ -178,18 +166,22 @@ export default class MemoryGame {
     this.showScore.innerHTML = ` <h3>Score: ${this.foundPairs}</h3>`;
   }
 
-  counterTime() {
-    this.totalTime = setInterval(() => {
-      this.timer++;
-      console.log(this.timer);
-      this.containerTime.innerHTML = `<h3>${(this.timer / 1000)} seconds</h3>`;
-    });
-    console.log(this.totalTime);
+  updateTimer() {
+    this.timer++;
+
+    let hours = Math.floor(this.timer / 3600);
+    let minutes = Math.floor((this.timer - (hours * 3600)) / 60);
+    let segundos = this.timer - (hours * 3600) - (minutes * 60);
+    let timeScreen = minutes.toString().padStart(2, '0') + ':' + segundos.toString().padStart(2, '0');
+
+    this.containerTime.innerHTML = `<h3>${timeScreen} minutes</h3>`;
+  }
+
+  counterTimer() {
+    this.intervalTime = setInterval(this.updateTimer.bind(this), 1000);
   }
 
   checkIfWon() {
-    console.log('check If won');
-
     this.counterPairs();
 
     this.card1 = null;
@@ -197,20 +189,14 @@ export default class MemoryGame {
     this.canPlay = true;
 
     if (this.maxPairNumber == this.foundPairs) {
-      console.log(this.totalTime);
-      console.log('Detengo el time');
-      clearInterval(this.totalTime);
+      clearInterval(this.intervalTime);
       this.currentLevel++;
 
-      setTimeout(() => {
-        this.modalContinue();
-      }, 1000);
+      this.modalContinue();
     }
   }
 
   resetOpenedCards() {
-    console.log('reset open');
-
     const firstOpened = document.querySelector(`figure.opened[data-image='${this.card1}']`);
     const secondOpened = document.querySelector(`figure.opened[data-image='${this.card2}']`);
 
@@ -225,8 +211,8 @@ export default class MemoryGame {
   resetBoard() {
     this.foundPairs = 0;
     this.attempts = 0;
-    this.totalTime = 0;
-    this.containerTime.innerHTML = '<h3> 0 seconds</h3>';
+    this.timer = 0;
+    this.containerTime.innerHTML = '<h3> 00:00 minutes</h3>';
     this.showScore.innerHTML = '<h3>Score: 0</h3>';
     this.showAttempts.innerHTML = '<h3>Attepmts: 0</h3>';
   }
@@ -257,7 +243,7 @@ export default class MemoryGame {
       setTimeout(() => {
         this.modalContainer.style.opacity = '0';
         this.modalContainer.style.visibility = 'hidden';
-      }, 300);
+      }, 1000);
 
       this.setNewGame();
     });
