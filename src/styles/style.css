@@ -77,19 +77,14 @@ header .logo {
 
 .menu-list {
   position: absolute;
-  display: none;
-  background: var(--bg-primary);
-  background-size: cover;
+  top: 5.7rem;
+  right: 0.8rem;
   width: 100%;
-  padding-right: .2rem;
+  background: var(--bg-secundary);
+  background-size: cover;
   border: 0.1rem solid rgba(0, 0, 0, 0.12);
   border-bottom-left-radius: 1rem;
   border-bottom-right-radius: 1rem;
-}
-
-.menu-list>*:first-child {
-  border-top-left-radius: 0rem;
-  border-top-right-radius: 0rem;
 }
 
 .menu-list>*:last-child {
@@ -97,10 +92,8 @@ header .logo {
   border-bottom-right-radius: 1rem;
 }
 
-.menu-list.active {
-  display: block;
-  position: absolute;
-  margin-top: 4.8rem;
+.inactive {
+  display: none;
 }
 
 .menu-list .menu-item {
@@ -109,18 +102,23 @@ header .logo {
   align-items: center;
   justify-content: center;
   padding: 1rem 0;
-  box-shadow: 0 0 0.2rem rgba(0, 0, 0, 1);
+  border: 0.1rem solid rgba(0, 0, 0, 0.12);;
 }
 
 .menu-list li:hover {
-  background-color: var(--complementary-light);
+  background: var(--bg-modal);
+  background-size: cover;
+}
+
+.menu-list li:hover a {
+  color: var(--complementary-dark);
 }
 
 .menu-list .menu-item a {
   text-decoration: none;
   font-size: var(--sm);
   font-weight: 600;
-  color: var(--complementary-dark);
+  color: var(--complementary-light);
   width: 100%;
   display: flex;
   justify-content: center;

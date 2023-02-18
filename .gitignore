@@ -13,3 +13,6 @@ build/
 
 # Directorios que no deben ser rastreados por Git
 node_modules/
+
+# VisualStudioCode
+.vscode/*
