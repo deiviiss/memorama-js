@@ -28,25 +28,35 @@ html {
 .register-account{
     padding-top: 15rem;
     padding-right: 0rem;
-    padding-bottom: 15rem;
+    padding-bottom: 10rem;
     padding-left: 0rem;
     width: auto;
+    height: 100vh;
 }
 
 .login-form input{
     width: 100%;
     border: 0.1rem solid rgba(255, 255, 255, 0.12);
-    padding: 0.7em;
+    padding: 0.7rem;
     margin: 0.6em 0;
-    border-radius: 0;
     margin-bottom: 1.5rem;
 }
 
 .login-form{
+    width: 100%;
     margin-bottom: 3rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
 } 
 
+.form {
+    width: 80%;
+}
+
 .signform {
+    width: 80%;
     background: var(--bg-secundary);
     background-size: cover;
     padding-bottom: 4rem;
@@ -151,12 +161,10 @@ html {
 .subbt {
     background-color: #79b42b;
     color: var(--complementary-light);
-    padding: 1rem 1.5rem 1rem 1.5rem;
-    margin-top: 1rem;
     cursor: pointer;
     font-size: 2rem;
     border-radius: .3rem;
-    width: 22rem;
+    height: 4rem;
     font-family: 'Amatic SC', cursive;
     font-weight: 700;
     font-style: normal;
@@ -181,10 +189,10 @@ html {
 
 .headit { 
     position: relative; 
-    top: -10px;
+    top: -1rem;
 }
 
-.headit h4{
+.headit h4 {
     font-size: 4rem;
     font-weight: 1000;
     color: var(--complementary-light);
@@ -261,41 +269,6 @@ form#login-form:after {
 }
 
 /*Media Query */
-@media screen  and (min-width: 1400px) {
-    .signform { 
-        width: 80%; 
-        left: 25%; 
-    }
-}
-
-@media screen  and (max-width: 1400px) and (min-width: 1230px) {
-    .signform {
-        width: 70%;
-        left: 25%; 
-    }
-}
-
-@media screen  and (max-width: 1230px) and (min-width: 1000px) {
-    .signform {
-        width: 60%; 
-        left: 15%;
-    }
-}
-
-@media screen  and (max-width: 1000px) and (min-width: 900px) {
-    .signform { 
-        width: 70%; 
-        left: 10%;
-    }
-}
-
-@media screen  and (max-width: 900px) and (min-width: 750px) {
-    .signform {
-        width: 80%; 
-        left: 8%; 
-    }
-}
-
 @media screen  and (max-width: 750px) and (min-width: 640px) {
     .signform { 
         width: 90%; 
@@ -304,6 +277,9 @@ form#login-form:after {
 }
 
 @media screen  and (min-width: 640px) {
+    .form {
+        width: 100%;
+    }
     .rigth {   
         width: 47%;
         display: inline-table;
@@ -318,24 +294,25 @@ form#login-form:after {
         margin-left: 5rem; 
     }
 }
-@media screen  and (max-width: 640px) {
+@media screen  and (max-width: 638px) {
     .rigth { 
         width: 100%; 
         margin-bottom: 2rem;
     }
+    
     .left {
-        width: 85%;
-        display: inline-table;
-        margin-left: 2rem;  
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
     }
-    .signform { 
-        width: 80%;
-        min-width:25.5rem;
-    }
+
     form#login-form:before {
         content: ''; 
     }
-    /* form#login-form:after {
+
+    form#login-form:after {
         content: '';
         position: absolute;   
         top: 0;
@@ -343,12 +320,18 @@ form#login-form:after {
         left: 0;
         bottom: 0;
         margin: auto;
-        height:0em;
-        width: 0em;
-        left: 0em;
-        top: 0em;
-    } */
+        height:0rem;
+        width: 0rem;
+        left: 0rem;
+        top: 0rem;
+    }
+
+    .register-account {
+        padding-top: 8rem;
+        padding-bottom: 4rem;
+    }
 }
+
 @media screen  and (max-width: 1500px) and (min-width: 640px) {
     form#login-form::before {
         font-size: var(--sm);
@@ -372,37 +355,13 @@ form#login-form:after {
         top: 0;
         right: 0;
         left: 0;
-        bottom: 15px;
+        bottom: 1.5rem;
         margin: auto;
-        height: 3.25em;
-        width: 0.1em;
-        left: 2.15em;
-        top: -2.8em;
+        height: 3.25rem;
+        width: 0.1rem;
+        left: 2.15rem;
+        top: -2.8rem;
         box-shadow: 0 8.8em 0 0 rgba(128, 128, 128, 0.3);
-    }
-}
-
-@media screen  and (max-width: 640px) and (min-width: 460px) {
-    .signform { 
-        left: 25%;
-    }   
-}
-
-@media screen  and (max-width: 460px) and (min-width: 400px) {
-    .signform {
-        left: 20%; 
-    }   
-}
-
-@media screen  and (max-width: 400px) and (min-width: 320px) {
-    .signform {
-        left: 10%; 
-    }   
-}
-
-@media screen  and (max-width: 320px) {
-    .signform {
-        left: 1%;
     }
 }
 
