@@ -1,19 +1,17 @@
 @import url('https://fonts.googleapis.com/css2?family=Amatic+SC&display=swap');
 
 :root {
-  --blue: #288FB4;
-  --complementary: #1D556F;
-  --beige: #EFDDB2;
-  --red: #FA360A;
-  --black: #000000;
-  --dark-blue: #090030;
-  --dark-complementary: #0C3C78;
-  --dark-font: #04879C;
-  --red-dark: #F30A49;
+  --bg-primary: linear-gradient(to top, #4481eb 0%, #04befe 100%) fixed no-repeat;
+  --bg-secundary: linear-gradient(to top, #1e3c72 0%, #1e3c72 1%, #2a5298 100%) fixed no-repeat;
+  --bg-modal: linear-gradient(to top, #ffa366 0%, #f4cda5 100%) fixed no-repeat;
+  --bg-card: linear-gradient(-60deg, #ff5858 0%, #f09819 100%) fixed no-repeat;
+  --complementary-dark: #090030;
+  --complementary-light: #ffff;
   --sm: 1.6rem;
   --md: 3.6rem;
   --lg: 6.4rem;
 }
+
 
 * {
   box-sizing: border-box;
@@ -27,10 +25,7 @@ html {
 }
 
 body {
-  background-image: linear-gradient(to top, #4481eb 0%, #04befe 100%);
-  /*Degradado 106 Party Bliss*/
-  background-repeat: no-repeat;
-  background-attachment: fixed;
+  background: var(--bg-primary);
   background-size: cover;
   height: 100vh;
 }
@@ -54,18 +49,21 @@ header .logo {
   line-height: 8.1rem;
   text-align: left;
   padding-left: 1.2rem;
-  color: var(--dark-blue)
+  color: var(--complementary-dark)
 }
 
 .menu {
   width: 20%;
   display: flex;
   justify-content: space-around;
+  position: relative;
 }
+
 
 button {
   background-color: transparent;
   border: 0;
+  cursor: pointer;
 }
 
 .menu button {
@@ -75,41 +73,41 @@ button {
 }
 
 svg {
-  fill: var(--complementary);
+  fill: var(--complementary-dark);
 }
 
 p {
   font-size: var(--md);
-  color: var(--complementary);
-  font-weight: 800;
+  color: var(--complementary-light);
 }
 
 main {
+  height: 100vh;
   display: flex;
   justify-content: center;
 }
 
 a {
-  color: #ffffff;
+  color: var(--complementary-light);
 }
 
 .information-container {
-  width: 90%;
-  height: auto;
-  padding: 2rem;
-  margin: 2rem;
+  width: 100%;
+  height: 80%;
   background: transparent;
+  display: flex;
+  justify-content: center;
 }
 
 .themes-container {
+  width: 90%;
+  height: 100%;
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: space-around;
   align-items: center;
-  height: 16rem;
-  padding-top: 2rem;
+  padding-top: 4rem;
   padding-bottom: 1rem;
-  overflow-y: scroll;
 }
 
 .theme-container {
@@ -117,18 +115,19 @@ a {
   flex-direction: row;
   justify-content: space-evenly;
   align-items: center;
-  width: 90%;
-  height: 8rem;
-  margin: .4rem;
-  padding: 0 .8rem;
-  background-color: var(--blue);
-  border-radius: .8rem;
-  filter: drop-shadow(0px 8px 4px rgba(0, 0, 0, 0.5));
+  width: 100%;
+  height: 4.8rem;
+  background: var(--bg-secundary);
+  background-size: cover;
+  color: var(--complementary-light);
+  border: 0.1rem solid rgba(0, 0, 0, 0.4);
+  box-shadow: 0rem 0.4rem 0.4rem rgba(0, 0, 0, 0.25);
+  border-radius: 2rem;
 }
 
 .theme-container p {
   display: flex;
-  font-size: var(--sm);
+  font-size: var(--md);
   width: 20rem;
   justify-content: center;
 }
@@ -148,8 +147,9 @@ a {
   height: 80%;
   align-items: center;
   justify-content: center;
-  background-color: var(--complementary);
-  color: #ffffff;
+  background-color: transparent;
+  color: var(--complementary-light);
+  font-size: var(--md);
   border-radius: .8rem;
 }
 
@@ -157,84 +157,16 @@ a {
   display: none;
 }
 
-/*Media Query */
-@media screen and (min-width: 270px) {
-  .themes-container {
-    padding-top: 10rem;
-  }
-}
-
-@media screen and (min-width: 360px) {
-
-  .themes-container {
-    padding-top: 12rem;
-  }
-}
-
-@media screen and (min-width: 410px) {
-  .themes-container {
-    padding-top: 10rem;
-  }
-}
+/* Media Query */
 
 @media screen and (min-width: 640px) {
-  .menu {
-    width: 10%;
-  }
-
   header .logo {
     font-size: var(--lg);
-  }
-
-  .theme-menu div,
-  .theme-menu button {
-    width: 8rem;
-  }
-}
-
-@media screen and (min-width: 670px) {
-  .themes-container {
-    height: 22rem;
-  }
-
-  .theme-container p {
-    font-size: 2rem;
-  }
-
-  .theme-menu div,
-  .theme-menu button {
-    width: 6rem;
-    font-size: 2rem;
-  }
-}
-
-@media screen and (min-width: 690px) {
-  .information-container {
-    width: 100%;
-  }
-
-  .themes-container {
-    height: 24rem;
   }
 }
 
 @media screen and (min-width: 860px) {
-  .themes-container {
-    padding-top: 14rem;
-    height: 32rem;
-  }
-
-  .theme-container p {
-    font-size: var(--md);
-  }
-
   .theme-menu div {
     display: flex;
   }
-
-  .theme-menu div,
-  .theme-menu button {
-    width: 8rem;
-    font-size: 3.2rem;
-  }
-}
+} 
