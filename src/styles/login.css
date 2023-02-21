@@ -1,15 +1,12 @@
 @import url('https://fonts.googleapis.com/css2?family=Amatic+SC&display=swap');
 
 :root {
-  --blue: #288FB4;
-  --complementary: #1D556F;
-  --beige: #EFDDB2;
-  --red: #FA360A;
-  --black: #000000;
-  --dark-blue: #090030;
-  --dark-complementary: #0C3C78;
-  --dark-font: #04879C;
-  --red-dark: #F30A49;
+  --bg-primary: linear-gradient(to top, #4481eb 0%, #04befe 100%) fixed no-repeat;
+  --bg-secundary: linear-gradient(to top, #1e3c72 0%, #1e3c72 1%, #2a5298 100%) fixed no-repeat;
+  --bg-modal: linear-gradient(to top, #ffa366 0%, #f4cda5 100%) fixed no-repeat;
+  --bg-card: linear-gradient(-60deg, #ff5858 0%, #f09819 100%) fixed no-repeat;
+  --complementary-dark: #090030;
+  --complementary-light: #ffff;
   --sm: 1.6rem;
   --md: 3.6rem;
   --lg: 6.4rem;
@@ -24,7 +21,8 @@
 html {
   font-size: 62.5%;
   font-family: 'Amatic SC', cursive;
-  background-color: var(--complementary);
+  background: var(--bg-primary);
+  background-size: cover;
 }
 
 .register-account{
@@ -37,7 +35,7 @@ html {
 
 .login-form input{
     width: 100%;
-    border: 1px solid #dddddd;
+    border: 0.1rem solid rgba(255, 255, 255, 0.12);
     padding: 0.7em;
     margin: 0.6em 0;
     border-radius: 0;
@@ -49,7 +47,8 @@ html {
 } 
 
 .signform {
-    background-color: var(--blue);
+    background: var(--bg-secundary);
+    background-size: cover;
     padding-bottom: 4rem;
     padding-top: 3.5rem;
     margin: 0 auto;
@@ -57,94 +56,86 @@ html {
 }
 
 .bts {
-    padding: 2em;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    padding: 2rem;
     margin: 0.6em 0;
 }
 
 .bts-a{
-    float:right;
+    float: right;
     margin-right: 3.5rem;
-    font-size: var(--sm);
-    color: var(--dark-blue);
+    font-size: 2rem;
+    color: var(--complementary-light);
+    text-decoration: none;
 }
 
 .bts-a:hover{
-    color: #79b42b;
-    text-decoration: none;
-    background: white;   
+    color: var(--complementary-dark);
+    background: var(--bg-modal);
+    background-size: cover;   
 }
 
 .bts span {
     text-align: center; 
-    font-size: var(--sm);
+    font-size: 2rem;
     font-family: 'Amatic SC', cursive;
 }
 
 .social {
-    transition: background 200ms ease-in-out 0s;
-    -webkit-transition: background 200ms ease-in-out 0s;
-    -moz-transition: background 200ms ease-in-out 0s;
-    -o-transition: background 200ms ease-in-out 0s;
-    -ms-transition: background 200ms ease-in-out 0s;
     margin-top: 1.2rem;
-    -webkit-border-top-left-radius:1px;
-    -moz-border-radius-topleft:1px;
-    border-top-left-radius:1px;
-    -webkit-border-top-right-radius:1px;
-    -moz-border-radius-topright:1px;
-    border-top-right-radius:1px;
-    -webkit-border-bottom-right-radius:1px;
-    -moz-border-radius-bottomright:1px;
-    border-bottom-right-radius:1px;
-    -webkit-border-bottom-left-radius:1px;
-    -moz-border-radius-bottomleft:1px;
-    border-bottom-left-radius:1px;
-    text-indent:0;
-    display:block;
-    color:#ffffff;
-    height:5rem;
-    line-height:5rem;
+    display: block;
+    color: var(--complementary-light);
+    height: 5rem;
+    line-height: 5rem;
     width: 100%;
-    text-decoration:none;
-    text-align:center;
+    text-decoration: none;
+    text-align: center;
 }
 
 .fblogin {   
-    background-color:#3b5898;  
+    background-color: #3b5898;
+    border: 0.1rem solid rgba(255, 255, 255, 0.12);
+    border-radius: .4rem;
 }
 
 .fblogin:hover {
-    background-color:#5177c2;
+    background-color: #5177c2;
 }
 
 .fblogin:active {
-    position:relative;
-    top:0.1rem;
+    position: relative;
+    top: 0.1rem;
 }
 
 .gplogin {  
-    background-color:#dd4c39; 
+    background-color: #dd4c39; 
+    border: 0.1rem solid rgba(255, 255, 255, 0.12);
+    border-radius: .4rem;
 }
 
 .gplogin:hover {
-    background-color:#f06e60;
+    background-color: #f06e60;
 }
 
 .gplogin:active {
-    position:relative;
-    top:0.1rem;
+    position: relative;
+    top: 0.1rem;
 }
 
 .twlogin { 
-    background-color:#00abee;  
+    background-color: #00abee;  
+    border: 0.1rem solid rgba(255, 255, 255, 0.12);
+    border-radius: .4rem;
 }
 
 .twlogin:hover {
-    background-color:#4cbde6;
+    background-color: #4cbde6;
 }
 
 .twlogin:active {
-    position:relative;
+    position: relative;
     top: 0.1rem;
 }
 
@@ -158,35 +149,34 @@ html {
 }
 
 .subbt {
-    text-shadow: 0 1px 0 rgba(122, 122, 122, 0.85);
-    transition: background 500ms ease-in-out 0s;
-    -webkit-transition: background 500ms ease-in-out 0s;
-    -moz-transition: background 500ms ease-in-out 0s;
-    -o-transition: background 500ms ease-in-out 0s;
-    -ms-transition: background 500ms ease-in-out 0s;
     background-color: #79b42b;
-    border: none;
-    color: #FFF;
+    color: var(--complementary-light);
     padding: 1rem 1.5rem 1rem 1.5rem;
-    margin-top: 1 rem;
+    margin-top: 1rem;
     cursor: pointer;
-    font-size: var(--sm);
+    font-size: 2rem;
     border-radius: .3rem;
-    width: 218px;
+    width: 22rem;
     font-family: 'Amatic SC', cursive;
     font-weight: 700;
     font-style: normal;
 }
 
-.right a {
+.left a {
     position: relative;
-    color: var(--dark-blue);
+    color: var(--complementary-light);
     text-decoration: none;
     font-family: 'Amatic SC', cursive;
     font-weight: 400;
     font-style: normal;
-    font-size: var(--sm);
+    font-size: 2rem;
     float: right;
+}
+
+.left a:hover {
+    color: var(--complementary-dark);
+    background: var(--bg-modal);
+    background-size: cover;  
 }
 
 .headit { 
@@ -195,13 +185,14 @@ html {
 }
 
 .headit h4{
-    font-size: var(--md);
-    color: var(--dark-blue);
+    font-size: 4rem;
+    font-weight: 1000;
+    color: var(--complementary-light);
 }
 
 .bts a:hover{
     text-decoration: none;
-    color: white;
+    color: rgb(255, 255, 255);
 }
 
 .bts a:active{
@@ -212,6 +203,14 @@ html {
 .bts a:focus{
     text-decoration: none;
     color: white;
+}
+
+.bts i{ 
+    margin: 1.5rem 1.5rem 1.5rem 2rem;
+    float: left;
+    width: 5%;
+    font-size: 2rem;
+    margin-left: 2rem;
 }
 
 .headit a {
@@ -225,16 +224,16 @@ html {
 form#login-form:before {
     content: 'or';
     font-size: var(--sm);
-    color: var(--dark-blue);
+    color: var(--complementary-light);
     position: absolute;
     top: 0;
     right: 0;
     left: 0;
     bottom: 0;
     margin: auto;
-    height: 0.5em;
-    width: 0.5em;
-    left: 1.5em;
+    height: 0.5rem;
+    width: 0.5rem;
+    left: 1.5rem;
     z-index: 900;
 }
 
@@ -247,167 +246,163 @@ form#login-form:after {
     height: 3.25em;
     width: 0.1em;
     left: 2.15em;
-    -moz-box-shadow: 0 8.8em 0 0 rgba(128, 128, 128, 0.3);
-    -webkit-box-shadow: 0 8.8em 0 0 rgba(128, 128, 128, 0.3);
     box-shadow: 0 8.8em 0 0 rgba(128, 128, 128, 0.3);
 }
 
 .remember{
-    color: var(--dark-blue);
-    font-size: var(--sm);
+    color: var(--complementary-light);
+    font-size: 2rem;
     margin-left: .4rem;
 }
 
 ::placeholder { 
     font-family: 'Amatic SC', cursive;
+    font-size: var(--sm);
 }
 
 /*Media Query */
 @media screen  and (min-width: 1400px) {
-.signform { 
-    width: 80%; 
-    left: 25%; 
+    .signform { 
+        width: 80%; 
+        left: 25%; 
     }
 }
+
 @media screen  and (max-width: 1400px) and (min-width: 1230px) {
-.signform {
-    width: 70%;
-    left: 25%; 
+    .signform {
+        width: 70%;
+        left: 25%; 
     }
 }
+
 @media screen  and (max-width: 1230px) and (min-width: 1000px) {
-.signform {
-    width: 60%; 
-    left: 15%;
+    .signform {
+        width: 60%; 
+        left: 15%;
     }
 }
+
 @media screen  and (max-width: 1000px) and (min-width: 900px) {
-.signform { 
-    width: 70%; 
-    left: 10%;
+    .signform { 
+        width: 70%; 
+        left: 10%;
     }
 }
+
 @media screen  and (max-width: 900px) and (min-width: 750px) {
-.signform {
-    width: 80%; 
-    left: 8%; 
+    .signform {
+        width: 80%; 
+        left: 8%; 
     }
 }
+
 @media screen  and (max-width: 750px) and (min-width: 640px) {
-.signform { 
-    width: 90%; 
-    left: 1%; 
+    .signform { 
+        width: 90%; 
+        left: 1%; 
     }
 }
+
 @media screen  and (min-width: 640px) {
-.left {   
-    width: 47%;
-    display: inline-table;
-    margin-left: 2rem;
-    float: right;
-}
-.right {
-    width: 40%;
-    display: inline-table;
-    margin-left: 5rem; 
-}
+    .rigth {   
+        width: 47%;
+        display: inline-table;
+        padding-top: 2rem;
+        margin-left: 2rem;
+        float: right;
+    }
+
+    .left {
+        width: 40%;
+        display: inline-table;
+        margin-left: 5rem; 
+    }
 }
 @media screen  and (max-width: 640px) {
-.left { 
-    width: 100%;
-    display: inline-table;  
-    margin-bottom: 2rem;
+    .rigth { 
+        width: 100%; 
+        margin-bottom: 2rem;
+    }
+    .left {
+        width: 85%;
+        display: inline-table;
+        margin-left: 2rem;  
+    }
+    .signform { 
+        width: 80%;
+        min-width:25.5rem;
+    }
+    form#login-form:before {
+        content: ''; 
+    }
+    /* form#login-form:after {
+        content: '';
+        position: absolute;   
+        top: 0;
+        right: 0;
+        left: 0;
+        bottom: 0;
+        margin: auto;
+        height:0em;
+        width: 0em;
+        left: 0em;
+        top: 0em;
+    } */
 }
-.right {
-    width: 85%;
-    display: inline-table;
-    margin-left: 2rem;  
+@media screen  and (max-width: 1500px) and (min-width: 640px) {
+    form#login-form::before {
+        font-size: var(--sm);
+        position: absolute;   
+        top: 0;
+        right: 0;
+        left: 0;
+        bottom: 0;
+        margin: auto;
+        height: 0.5em;
+        width: 0.5em;
+        left: 1.5em;
+        top: 2.4em;
+        z-index: 900;
+    }
+
+    form#login-form::after {
+        content: '';
+        position: absolute;
+        background: rgba(128, 128, 128, 0.3);
+        top: 0;
+        right: 0;
+        left: 0;
+        bottom: 15px;
+        margin: auto;
+        height: 3.25em;
+        width: 0.1em;
+        left: 2.15em;
+        top: -2.8em;
+        box-shadow: 0 8.8em 0 0 rgba(128, 128, 128, 0.3);
+    }
 }
-.signform { 
-    width: 80%;
-    min-width:25.5rem;
-}
-form#login-form:before {
-    content: ''; 
-    position: absolute;
-    top: 0;
-    right: 0;
-    left: 0;
-    bottom: 0;
-    margin: auto;
-}
-form#login-form:after {
-    content: '';
-    position: absolute;   
-    top: 0;
-    right: 0;
-    left: 0;
-    bottom: 0;
-    margin: auto;
-    height:0em;
-    width: 0em;
-    left: 0em;
-    top: 0em;
-}
-}
-@media screen  and (max-width: 1500px) and (min-width: 650px) {
-form#login-form::before {
-    font-size: var(--sm);
-    color: var(--dark-blue);
-    position: absolute;   
-    top: 0;
-    right: 0;
-    left: 0;
-    bottom: 0;
-    margin: auto;
-    height: 0.5em;
-    width: 0.5em;
-    left: 1.5em;
-    top: 2.4em;
-    z-index: 900;
-}
-form#login-form::after {
-    content: '';
-    position: absolute;
-    background: rgba(128, 128, 128, 0.3);
-    top: 0;
-    right: 0;
-    left: 0;
-    bottom: 15px;
-    margin: auto;
-    height: 3.25em;
-    width: 0.1em;
-    left: 2.15em;
-    top: -2.8em;
-    -moz-box-shadow: 0 8.8em 0 0 rgba(128, 128, 128, 0.3);
-    -webkit-box-shadow: 0 8.8em 0 0 rgba(128, 128, 128, 0.3);
-    box-shadow: 0 8.8em 0 0 rgba(128, 128, 128, 0.3);
-}
-}
+
 @media screen  and (max-width: 640px) and (min-width: 460px) {
-.signform { 
-    left: 25%;
-}   
+    .signform { 
+        left: 25%;
+    }   
 }
+
 @media screen  and (max-width: 460px) and (min-width: 400px) {
-.signform {
-    left: 20%; 
-}   
+    .signform {
+        left: 20%; 
+    }   
 }
+
 @media screen  and (max-width: 400px) and (min-width: 320px) {
-.signform {
-    left: 10%; 
-}   
+    .signform {
+        left: 10%; 
+    }   
 }
+
 @media screen  and (max-width: 320px) {
-.signform {
-    left: 1%;
+    .signform {
+        left: 1%;
+    }
 }
-}
-.bts i{ 
-    margin: 1.5rem 1.5rem 1.5rem 2rem;
-    float: left;
-    width: 5%;
-    font-size: 2rem;
-    margin-left: 2rem;
-}
+
