@@ -67,6 +67,7 @@ header .logo {
   display: flex;
   justify-content: space-around;
   position: relative;
+  z-index: 200;
 }
 
 .menu button {
@@ -160,6 +161,7 @@ figure {
   justify-content: center;
   width: 6rem;
   height: 8rem;
+  z-index: 100;
 }
 
 figure {
